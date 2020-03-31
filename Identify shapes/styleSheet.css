@@ -1,0 +1,60 @@
+html { 
+    background: url("./image/background.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 50px;
+    font-size: 14px;
+}
+
+.game {
+    background-color: white;
+    background-size: 100%;
+    width: 960px;
+    height: 95vh;
+    min-height: 600px;
+    border-radius: 20px;
+}
+
+.head {
+    height: 4vh;
+    border-bottom: 1px solid black;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+}
+
+.head a{
+    font-size: 20px;
+    text-decoration: none;
+    color: #246EA1;
+}
+
+.beads-wrapper {
+    align-items: center;
+}
+
+.progress-bar {
+    font-size: 24px;
+    color: teal;
+    width: 465px;
+    height: 26px;
+    border-radius: 16px;
+    background-color: #EDEDED;
+    box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.22), 
+    inset 0px 1px 3px 0px rgba(0,0,0,0.18);
+    position: absolute;
+    margin: auto;
+    top: 30px;
+    left: 0;
+    right: 0;
+}
