@@ -16,17 +16,18 @@ body {
 .game {
     background-color: white;
     background-size: 100%;
-    width: 960px !important;
-    min-height: 640px !important;
+    width: 818px !important;
+    min-height: 450px !important;
     border-radius: 20px;
     position: absolute;
     margin: auto;
     left: 0;
     right: 0;
+    top: 125px;
 }
 
 .head {
-    height: 4vh;
+    height: 20px;
     border-bottom: 1px solid black;
     display: flex;
     padding: 15px;
