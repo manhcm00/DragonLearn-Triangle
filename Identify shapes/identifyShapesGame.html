@@ -17,21 +17,84 @@
                     <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i>
                 </div>
             </div>
+            <div class="health-bar">
+                <img class="health" src="./image/health.png">
+                <img class="health" src="./image/health.png">
+                <img class="health" src="./image/health.png">
+            </div>
         </div>
-        <div id="screen1" class="play-screen">
-            <div class="shapes" type="rectangle" style="position: absolute;top: 10px; left: 450px;">
-                <img src="./image/rectangle.png">
+        <div id="screen1" class="play-screen" onclick="clickHandler(event)">
+            <div class="target-holder">
+                <div class="table-monster" style="position:absolute;top: 5px; left: 90px;">
+                    <div class="picture-table">
+                        <h2><i class="fas fa-volume-up speaker" message="I eat triangle"></i> I eat <b>triangle</b></h2>
+                        <img src="./image/triangleGreenBig.png">
+                    </div>
+                </div>
+                <div class="table-monster" style="position:absolute;top: 5px; left: 525px;">
+                    <div class="picture-table">
+                        <h2><i class="fas fa-volume-up speaker" message="I eat circle"></i> I eat <b>circle</b></h2>
+                        <img src="./image/circlePurple.png">
+                    </div>
+                </div>
+                <div class="targets" id="target-1" target="cirle" style="position: absolute;bottom: 20px; right: 0px;">
+                    <img src="image/targetPurple.png" draggable="false">
+                </div>
+                <div class="targets" id="target-2" target="triangle" style="position: absolute;bottom: 20px; left: 0px;">
+                    <img src="image/targetOrange.png" draggable="false">   
+                </div>
             </div>
 
+            <h1><i class="fas fa-volume-up speaker" message="Feed the elephants"></i> Feed the elephants</h1>
 
-            <div class="targets" id="target-1" style="position: absolute;bottom: 20px; right: 0px;">
-                <img src="image/targetPurple.png">
+            <div class="shape-place">
+                <div class="shapes" type="rectangle" draggable="true" style="position: absolute;top: 200px; left: 280px;">
+                    <img src="./image/rectangleBlue.png">
+                </div>
+                <div class="shapes" type="rectangle" draggable="true" style="position: absolute;top: 130px; left: 450px;">
+                    <img src="./image/rectanglePurple.png">
+                </div>
+                <div class="shapes" type="rectangle" draggable="true" style="position: absolute;top: 200px; left: 350px;">
+                    <img src="./image/rectangleOrange.png">
+                </div>
+                <div class="shapes" type="rectangle" draggable="true" style="position: absolute;top: 350px; left: 300px;">
+                    <img src="./image/rectangleYellow.png">
+                </div>
+                <div class="shapes" type="cirle" draggable="true" style="position: absolute;top: 32px; left: 450px;">
+                    <img src="./image/circleOrange.png">
+                </div>
+                <div class="shapes" type="cirle" draggable="true" style="position: absolute;top: 110px; left: 240px;">
+                    <img src="./image/circleGreen.png">
+                </div>
+                <div class="shapes" type="cirle" draggable="true" style="position: absolute;top: 280px; left: 300px;">
+                    <img src="./image/circlePurple.png">
+                </div>
+                <div class="shapes" type="cirle" draggable="true" style="position: absolute;top: 300px; left: 450px;">
+                    <img src="./image/circleYellow.png">
+                </div>
+                <div class="shapes" type="triangle" draggable="true" style="position: absolute;top: 220px; left: 440px;">
+                    <img src="./image/triangleBlue.png">
+                </div>
+                <div class="shapes" type="triangle" draggable="true" style="position: absolute;top: 140px; left: 350px;">
+                    <img src="./image/triangleGreen.png">
+                </div>
+                <div class="shapes" type="triangle" draggable="true" style="position: absolute;top: 70px; left: 370px;">
+                    <img src="./image/trianglePurple.png">
+                </div>
+                <div class="shapes" type="triangle" draggable="true" style="position: absolute;top: 40px; left: 290px;">
+                    <img src="./image/triangleOrange.png">
+                </div>
             </div>
-            <div class="targets" id="target-2" style="position: absolute;bottom: 20px; left: 0px;">
-                <img src="image/targetOrange.png">
-            </div>
+            
         </div>
     </div>
     <script src="game.js"></script>
+    <script>
+        
+        function clickHandler(event) {
+            console.log(event);
+            console.log(event.clientX + " " + event.clientY);
+        }
+    </script>
 </body>
 </html>
