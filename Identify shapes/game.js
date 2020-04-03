@@ -2,12 +2,36 @@ const listShapes = document.querySelectorAll('.shapes');
 const targets = document.querySelectorAll('.targets');
 console.log(targets);
 
+var health = 3;
+
 let draggedShape = null;
+
+function closeMouth(target) {
+    let activeTarget = target.children[0];
+    let mouth = activeTarget.children[1];
+    mouth.style.display = 'none';
+}
+
+function openMouth(target) {
+    let activeTarget = target.children[0];
+    let mouth = activeTarget.children[1];
+    mouth.style.display = 'block';
+}
+
+function badReact(target) {
+    let activeTarget = target.children[0];
+    let redTarget = target.children[1];
+    activeTarget.style.display = 'none';
+    redTarget.style.display = 'block';
+    setTimeout(function() {
+        activeTarget.style.display = 'block';
+        redTarget.style.display = 'none';
+    }, 1500)
+}
 
 for (let i = 0; i < listShapes.length; i++) {
     const shape = listShapes[i];
     shape.isDisappear = false;
-    console.log(shape.isDisappear);
     
     shape.addEventListener('dragstart', function () {
         console.log('dragged');
@@ -38,15 +62,18 @@ for (let j = 0; j < targets.length; j ++) {
     target.addEventListener('dragover', function(e) {
         e.preventDefault();
         //this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
+        openMouth(target);
     });
 
     target.addEventListener('draggener', function(e) {
         e.preventDefault();
         //this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        closeMouth(target);
     });
 
     target.addEventListener('dragleave', function(e) {
         //this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+        closeMouth(target);
     })
 
     target.addEventListener('drop', function (e) {
@@ -54,9 +81,12 @@ for (let j = 0; j < targets.length; j ++) {
             draggedShape.isDisappear = true;
         }
         else {
+            badReact(target);
+            health--;
             draggedShape.isDisappear = false;
-            
+            console.log(health);
         }
+        closeMouth(target);
     });
 }
 

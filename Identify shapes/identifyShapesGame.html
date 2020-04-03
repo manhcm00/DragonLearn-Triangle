@@ -10,8 +10,9 @@
 </head>
 <body>
     <div class="game">
+
         <div class="head">
-            <a href="../ouline/index.html"><i class="fas fa-chevron-left"></i> Back</a>
+            <a href="../ouline/index.html"><i class="fas fa-chevron-left"></i> Trở lại</a>
             <div class="beads-wrapper">
                 <div class="progress-bar">
                     <i class="fas fa-circle"></i><i class="fas fa-circle"></i><i class="fas fa-circle"></i>
@@ -23,29 +24,53 @@
                 <img class="health" src="./image/health.png">
             </div>
         </div>
-        <div id="screen1" class="play-screen" onclick="clickHandler(event)">
+
+        <div id="screen1" class="play-screen">
             <div class="target-holder">
-                <div class="table-monster" style="position:absolute;top: 5px; left: 90px;">
+                <div class="table-monster" style="position:absolute;top: -20px; left: 90px;">
                     <div class="picture-table">
-                        <h2><i class="fas fa-volume-up speaker" message="I eat triangle"></i> I eat <b>triangle</b></h2>
+                        <h2><i class="fas fa-volume-up speaker" message="Tôi muốn ăn hình tam giác"></i> Tôi muốn ăn hình tam giác</h2>
                         <img src="./image/triangleGreenBig.png">
                     </div>
                 </div>
-                <div class="table-monster" style="position:absolute;top: 5px; left: 525px;">
+
+                <div class="table-monster" style="position:absolute;top: -20px; left: 525px;">
                     <div class="picture-table">
-                        <h2><i class="fas fa-volume-up speaker" message="I eat circle"></i> I eat <b>circle</b></h2>
+                        <h2><i class="fas fa-volume-up speaker" message="Tôi muốn ăn hình tròn"></i> Tôi muốn ăn hình tròn</h2>
                         <img src="./image/circlePurple.png">
                     </div>
                 </div>
-                <div class="targets" id="target-1" target="cirle" style="position: absolute;bottom: 20px; right: 0px;">
-                    <img src="image/targetPurple.png" draggable="false">
+
+                <div class="targets target-right" id="target-1" target="cirle" style="position: absolute;bottom: 20px; right: 0px;">
+                    <div class="active">
+                        <img src="./image/targetPurple.png" draggable="false">
+                        <img src="./image/mouthPurple.png" class="mouth" draggable="false" style="position: absolute;top: 15px;right: 0px;">
+                        <img src="./image/nosePurple.png" draggable="false" style="position: absolute; top:5px; right: 10px;">
+                    </div>
+                    <div class="red-elephants">
+                        <img src="./image/cannotEat.png" draggable="false" style="position: absolute;bottom: 5px; right: 0px;">
+                    </div>
+                    <div class="sleeping">
+                        <img src="./image/targetSleepingPurple.png" draggable="false" style="position: absolute;bottom: 0px; right: 0px;">
+                    </div>
                 </div>
-                <div class="targets" id="target-2" target="triangle" style="position: absolute;bottom: 20px; left: 0px;">
-                    <img src="image/targetOrange.png" draggable="false">   
+
+                <div class="targets target-left" id="target-2" target="triangle" style="position: absolute;bottom: 20px; left: 0px;">
+                    <div class="active">
+                        <img src="image/targetOrange.png" draggable="false">
+                        <img src="./image/mouthOrange.png" class="mouth" draggable="false" style="position: absolute; top:5px;left: 0px;">
+                        <img src="./image/noseOrange.png" draggable="false" style="position: absolute; top:5px; left: 0px;">
+                    </div>
+                    <div class="red-elephants">
+                        <img src="./image/cannotEat.png" draggable="false" style="position: absolute;bottom: 3px; left: -270px;">
+                    </div>
+                    <div class="sleeping">
+                        <img src="./image/targetSleepingOrange.png" draggable="false" style="position: absolute;bottom: 0px; left: 0px;">
+                    </div>
                 </div>
             </div>
 
-            <h1><i class="fas fa-volume-up speaker" message="Feed the elephants"></i> Feed the elephants</h1>
+            <h1><i class="fas fa-volume-up speaker" message="hãy cho voi ăn!"></i> Hãy cho voi ăn!</h1>
 
             <div class="shape-place">
                 <div class="shapes" type="rectangle" draggable="true" style="position: absolute;top: 200px; left: 280px;">
@@ -88,13 +113,24 @@
             
         </div>
     </div>
+
+    
+    <audio src="" class="speech" hidden></audio>
     <script src="game.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
     <script>
-        
-        function clickHandler(event) {
-            console.log(event);
-            console.log(event.clientX + " " + event.clientY);
-        }
+        $(function() {
+            $('i.speaker').on('click', function(e) {
+                e.preventDefault();
+                var text = $(this).attr("message");
+                text = encodeURIComponent(text);
+                console.log(text);
+                url = "https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=" + text + "&tl=vi"
+                $('audio').attr('src', url).get(0).play();
+            });
+        });
     </script>
 </body>
 </html>
