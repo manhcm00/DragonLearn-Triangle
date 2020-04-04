@@ -23,7 +23,7 @@ body {
     margin: auto;
     left: 0;
     right: 0;
-    top: 125px;
+    top: 100px;
     user-select: none;
 }
 
@@ -63,11 +63,14 @@ body {
 
 .health-bar {
     margin-left: auto;
+    display: flex;
 }
 
 .health {
     width: 35px;
     height: 35px;
+    background-image: url("./image/health.png");
+    background-size: cover;
 }
 
 .play-screen {
@@ -93,7 +96,7 @@ body {
     user-select: none;
 }
 
-#target-2 {
+.target-left {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }

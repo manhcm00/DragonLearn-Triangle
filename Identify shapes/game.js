@@ -1,8 +1,16 @@
 const listShapes = document.querySelectorAll('.shapes');
 const targets = document.querySelectorAll('.targets');
-console.log(targets);
+const healthBar = document.querySelectorAll('.health');
+
+console.log(healthBar);
 
 var health = 3;
+
+function loseHeath() {
+    health -= 1;
+    let healthLose = healthBar[2 - health];
+    healthLose.style.backgroundImage = "url('./image/healthlose.png')";
+}
 
 let draggedShape = null;
 
@@ -27,6 +35,13 @@ function badReact(target) {
         activeTarget.style.display = 'block';
         redTarget.style.display = 'none';
     }, 1500)
+}
+
+function sleep(target) {
+    let activeTarget = target.children[0];
+    let sleepingTarget = target.children[2];
+    activeTarget.style.display = 'none';
+    sleepingTarget.style.display = 'block';
 }
 
 for (let i = 0; i < listShapes.length; i++) {
@@ -58,6 +73,7 @@ for (let i = 0; i < listShapes.length; i++) {
 
 for (let j = 0; j < targets.length; j ++) {
     const target = targets[j];
+    target.blanksOfstomach = 4;
 
     target.addEventListener('dragover', function(e) {
         e.preventDefault();
@@ -77,16 +93,20 @@ for (let j = 0; j < targets.length; j ++) {
     })
 
     target.addEventListener('drop', function (e) {
-        if (draggedShape.getAttribute("type") === target.getAttribute("target")) {
-            draggedShape.isDisappear = true;
+        if (target.blanksOfstomach !== 0) {
+            if (draggedShape.getAttribute("type") === target.getAttribute("target")) {
+                draggedShape.isDisappear = true;
+                target.blanksOfstomach--;
+                if (target.blanksOfstomach === 0) {
+                    sleep(target);
+                }
+            }
+            else {
+                badReact(target);
+                loseHeath();
+                draggedShape.isDisappear = false;
+            }
+            closeMouth(target);
         }
-        else {
-            badReact(target);
-            health--;
-            draggedShape.isDisappear = false;
-            console.log(health);
-        }
-        closeMouth(target);
     });
 }
-
