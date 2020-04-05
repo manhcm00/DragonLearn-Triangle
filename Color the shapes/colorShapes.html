@@ -4,9 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=S, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+    <link type="text/css" rel="stylesheet" href="./colorShapes.css" />
     
+    <title>Color in the shapes</title>
+</head>
+<body >
+    <div id = "divBackground" > </div>
+    <div style="width: 0px; height: 0px; overflow: hidden;"> </div>
+    <div class="game">
+        <div class="head">
+            <a class="back-link" style href="../ouline/index.html">
+                <div class="arrow-left" > </div>
+                <span> Back </span>
+            </a>
+            <div class="right-group">
+                <a class="dropdown-toggle">
+                    <span class="dropdown-toggle-text">Tiếng Việt</span>
+                    <span class="dropdown-toggle-caret"></span>
+                </a>
+            </div>
+            <div class="beads-wrapper">
+                <div id="process">
+                    <div class="inner-process">
+                        <i class="ball" id="bead1" style="left: 4px;"></i>
+                        <i class="ball" id="bead2" style="left: 28px;"></i>
+                        <i class="ball" id="bead3" style="left: 52px;"></i>
+                        <i class="ball" id="bead4" style="left: 76px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-content">
+            <div id="board" class="player" >
+                <div class="scene">
+                    <div class="grid">
+                        <div class="grid-part">
+                            <div class="grid-column" style="width: 20px;">
+                                <span> 23 </span>
+                            </div>
+                        </div>
+                        <div class="grid-part">
+                            <div class="grid-row" style="height: 20px;">
+                                <span style="line-height:20px"; margin-left: 5px >13 </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="figures">
+                        <canvas id="myCanvas" width="200" height="460" style="cursor:inherit"></canvas>
+                    </div>
+                    <div class="right-act"> 
+                        <div class="title">
+                            <div class="sound">
+                                <span class="speaker"></span>
+                                <span>Let's color the shape!</span>
+                            </div>
+                            <div class="button-next">
+                                <div class="button-next-link">
+                                    <div class="button" style="visibility:hidden">Next</div>
+                                    <div class="button-next-text">Next</div>
+                                    <div class="button-next-icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tools-hidden">
+                            
+                        </div>
+                        <div class="congratulation">
+
+                        </div>
+                    </div>
+                    <div class="arow-hiden">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>
