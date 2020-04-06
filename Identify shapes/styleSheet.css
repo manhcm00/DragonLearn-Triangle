@@ -17,7 +17,7 @@ body {
     background-color: white;
     background-size: 100%;
     width: 818px !important;
-    min-height: 450px !important;
+    min-height: 500px !important;
     border-radius: 20px;
     position: absolute;
     margin: auto;
@@ -137,4 +137,18 @@ body {
 
 .sleeping {
     display: none;
+}
+
+#screen1 {
+    
+}
+
+#screen2 {
+    display: none;  
+    position: absolute;
+    top: 65px;
+}
+
+#screen2 h1 {
+    margin: 0px;
 }
