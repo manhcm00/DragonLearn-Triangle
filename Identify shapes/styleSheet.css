@@ -96,6 +96,12 @@ body {
     user-select: none;
 }
 
+.non-target img {
+    width: 270px;
+    height: 380px;
+    user-select: none;
+}
+
 .target-left {
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
@@ -143,12 +149,17 @@ body {
     
 }
 
-#screen2 {
+#screen2, #screen3 {
     display: none;  
     position: absolute;
     top: 65px;
 }
 
-#screen2 h1 {
+#screen2 h1, #screen3 h1 {
     margin: 0px;
+}
+
+.shape-place img {
+    max-width: 120px;
+    max-height: 120px;
 }

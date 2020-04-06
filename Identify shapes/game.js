@@ -2,8 +2,6 @@ const listShapes = document.querySelectorAll('.shapes');
 const targets = document.querySelectorAll('.targets');
 const healthBar = document.querySelectorAll('.health');
 
-console.log(healthBar);
-
 var health = 3;
 
 function loseHeath() {
@@ -74,6 +72,7 @@ for (let i = 0; i < listShapes.length; i++) {
 for (let j = 0; j < targets.length; j ++) {
     const target = targets[j];
     target.blanksOfstomach = 4;
+    target.isSleeping = false;
 
     target.addEventListener('dragover', function(e) {
         e.preventDefault();
@@ -98,7 +97,9 @@ for (let j = 0; j < targets.length; j ++) {
                 draggedShape.isDisappear = true;
                 target.blanksOfstomach--;
                 if (target.blanksOfstomach === 0) {
+                    target.isSleeping = true;
                     sleep(target);
+                    setTimeout(endScreen, 3);
                 }
             }
             else {
@@ -107,6 +108,23 @@ for (let j = 0; j < targets.length; j ++) {
                 draggedShape.isDisappear = false;
             }
             closeMouth(target);
+            console.log(target.id);
         }
     });
 }
+
+const screen1 = document.querySelector('#screen1');
+const screen2 = document.querySelector('#screen2');
+const screen3 = document.querySelector('#screen3');
+
+function endScreen() {
+    if (targets[0].isSleeping && targets[1].isSleeping) {
+        screen1.style.display = 'none';
+        screen2.style.display = 'block';
+    }
+    if (targets[2].isSleeping) {
+        screen2.style.display = 'none';
+        screen3.style.display = 'block';
+    }
+}
+
