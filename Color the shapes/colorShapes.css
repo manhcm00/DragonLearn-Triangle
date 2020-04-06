@@ -157,10 +157,6 @@ i.ball{
     -webkit-transition: left 200ms linear;
 }
 
-a :hover{
-    opacity: 0.5;
-}
-
 body.card-content{
     padding: 4px 0;
 }
@@ -236,18 +232,11 @@ body.card-content{
 .card-content.player.right-act{
     position: relative;
     width: 540px;
-    height: 440px;
+    height: 500px;
     float: right;
     margin-top: 80px;
 }
 
-.card-content.player.right-act{
-    position: relative;
-    width: 540px;
-    height: 440px;
-    float: right;
-    margin-top: 80px;
-}
 .title{
     margin-top: -370px;
     margin-right: -355px;
@@ -312,5 +301,169 @@ body.card-content{
     height: 200px;
     width: 360px;
     float: right;
-    display: none;
+    display: block;
 }
+
+.hidden-box{
+    position: relative;
+    height: 80px;
+    width: 280px;
+    float: left;
+}
+
+.tool-painter{
+    position: absolute;
+    left: -35px;
+    width: 335px;
+    height: 80px;
+    z-index: 1;
+}
+
+.small-speaker{
+    position: absolute;
+    left: -35px;
+    top: 16px;
+}
+
+.speaker-small{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 50%;
+    background-position: 0 0;
+    touch-action: none;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: -1px;
+    background-image: url("./image/speaker.png");
+    background-size: 100%;
+}
+
+.tool-brush{
+    height:60px;
+    width: 60px;
+    background-image: url("./image/");
+}
+
+.tool-text-brush{
+    margin-left: 60px;
+    margin-top: -60px;
+    font-size: 26px;
+    float: left;
+    padding-top: 11px;
+    cursor: default;
+}
+
+.tool-select{
+    position: absolute;
+    top: 9px;
+    z-index: -1;
+    opacity: 0.7;
+    height: 40px;
+}
+
+.tool-eraser{
+    margin-top: -60px;
+    height: 40px;
+    width: 60px;
+    background-image: url("./image/eraser.png");
+}
+
+.congratulation{
+    position: absolute;
+    bottom: 10px;
+    right: 50px;
+    width: 390px;
+}
+
+.congrat-button{
+    margin-top: 300px;
+    display:inline-block ;
+    position: relative;
+}
+
+.congrat-button-next{
+    height: 41px;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.congrat-title{
+    bottom: 10px;
+    font-size: 35px;
+    display: inline ;
+}
+
+.button-next-holder{
+    position: relative;
+    margin-left: 1px;
+    margin-right: 38px;
+}
+
+
+.button-next-text2{
+    margin-left: 140px;
+    display: block;
+    white-space: nowrap;
+    font-size: 24px;
+    line-height: 28px;
+    -webkit-font-smoothing: antialiased;
+    padding: 7px 0 6px;
+    position: absolute;
+    left: 3px;
+    top: 5px;
+    color: #6ec3e2;
+}
+
+.start-play{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    width: 246px;
+    height: 246px ;
+    margin: -100px 0px 0px -166px;
+    border-radius: 200px;
+    background-color: rgba(184,0,161,0.1);
+    border: rgba(255,255,255,0.75);
+    transition: linear 0.2s;
+    cursor: pointer;
+}
+.traingle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 112px;
+    height: 113px;
+    background: url("./image/start.png") no-repeat;
+    margin: -57px 0 0 -35px;
+}
+
+.traingle span{
+    position: absolute;
+    top: 50%;
+    font-size: 20px;
+    line-height: 20px;
+    margin-top: -10px;
+    left: 18px;
+    color: #fff;
+}
+
+a :hover{
+    opacity: 0.5;
+}
+
+.speaker:hover{
+    opacity: 0.8;
+}
+.button-next-icon{
+    opacity: 0.8;
+}
+.button-next-text{
+    opacity: 0.8;
+}
+
+.start-play :hover{
+    opacity: 0.8;
+}
+
