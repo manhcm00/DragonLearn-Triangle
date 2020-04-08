@@ -1,6 +1,7 @@
 const listShapes = document.querySelectorAll('.shapes');
 const targets = document.querySelectorAll('.targets');
 const healthBar = document.querySelectorAll('.health');
+const progressBalls = document.querySelectorAll('.progress-ball');
 
 var health = 3;
 
@@ -119,12 +120,25 @@ const screen3 = document.querySelector('#screen3');
 
 function endScreen() {
     if (targets[0].isSleeping && targets[1].isSleeping) {
-        screen1.style.display = 'none';
-        screen2.style.display = 'block';
+        screen1.style.animation = `fadeScreen 3s ease-in`;
+        progressBalls[0].style.float = 'right';
+        setTimeout(function() {
+            screen1.style.display = 'none';
+            screen2.style.display = 'block';
+            screen2.style.animation = `appear 2s ease-in`;
+        }, 3000);
     }
     if (targets[2].isSleeping) {
-        screen2.style.display = 'none';
-        screen3.style.display = 'block';
+        screen2.style.animation = `fadeScreen 3s ease-in`;
+        progressBalls[1].style.float = 'right';
+        setTimeout(function() {
+            screen2.style.display = 'none';
+            screen3.style.display = 'block';
+            screen3.style.animation = `appear 2s ease-in`;
+        }, 3000);
+    }
+    if (targets[3].isSleeping && targets[4].isSleeping) {
+        progressBalls[2].style.float = 'right';
     }
 }
 
