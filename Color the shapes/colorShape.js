@@ -1,3 +1,11 @@
+var circle = document.querySelector('.circle');
+circle.addEventListener('click', function (){
+    this.style.display = 'none' ; 
+});
+
+var square = document.querySelector('.square');
+
+
 function drawCircle(){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
@@ -7,7 +15,7 @@ function drawCircle(){
     ctx.closePath();
 }
 
-function drawTraingle{
+function drawTraingle(){
     var width = 125;  // Triangle Width
     var height = 105; // Triangle Height
     var padding = 20;
@@ -25,7 +33,7 @@ function drawTraingle{
   //  context.fill();
 }
 
-function drawRectangle{
+function drawRectangle(){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.beginPath();
@@ -33,3 +41,6 @@ function drawRectangle{
     ctx.stroke();
     ctx.closePath();
 }
+
+
+
