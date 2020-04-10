@@ -2,11 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=S, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../Match%20shape%20names/graphics.css">
+    <title>Matching shape names to the actual shapes</title>
 </head>
+
 <body>
-    
+<div class="game">
+    <div class="head">
+        <a href="../ouline/index.html">
+            <button type="button" name="button" id="back-button">BACK</button>
+        </a>
+        <div class="beads-wrapper">
+            <div class="progressBar">
+                <img src="./image/azBall.png" id="ball1" alt="green-ball">
+                <img src="./image/azBall.png" id="ball2" alt="green-ball">
+                <img src="./image/azBall.png" id="ball3" alt="green-ball">
+                <img src="./image/azBall.png" id="ball4" alt="green-ball">
+                <img src="./image/azBall.png" id="ball5" alt="green-ball">
+                <img src="./image/azBall.png" id="ball6" alt="green-ball">
+            </div>
+        </div>
+    </div>
+
+    <div class="nameCard" id="name_1" style="position: absolute; top: 120px; right: 50px;">
+        <img src="./image/card1.png" alt="card" width="260">
+    </div>
+    <div class="nameCard" id="name_2" style="position: absolute; top: 290px; right: 50px;">
+        <img src="./image/card1.png" alt="card" width="260">
+    </div>
+
+    <div id="screen-1" class="play-screen">
+        <div class="triangle" style="position: absolute; top: 85px; left: 140px;">
+            <img src="image/triangle1.png" alt="a triangle" id="triangle" width="180">
+        </div>
+        <p class="triangleText">tam giác</p>
+        <p class="rectangleText">chữ nhật</p>
+        <button class="name-button-1" type="button" id="triangleButton1">OK</button>
+        <button class="name-button-2" type="button" id="rectangleButton1">OK</button>
+    </div>
+
+    <div id="screen-2" class="play-screen">
+        <div class="circle" style="position: absolute; top: 85px; left: 140px;">
+            <img src="./image/circle1.png" alt="a circle" id="circle" width="180">
+        </div>
+        <p class="triangleText">tam giác</p>
+        <p class="rectangleText">tròn</p>
+        <button class="name-button-1" type="button" id="rectangleButton2">OK</button>
+        <button class="name-button-2" type="button" id="circleButton2">OK</button>
+    </div>
+
+    <div id="screen-3" class="play-screen">
+        <div class="rectangle" style="position: absolute; top: 85px; left: 140px;">
+            <img src="./image/rectangle1.png" alt="a rectangle" id="rectangle" width="180">
+        </div>
+        <p class="triangleText">chữ nhật</p>
+        <p class="rectangleText">tam giác</p>
+        <button class="name-button-1" type="button" id="triangleButton3">OK</button>
+        <button class="name-button-2" type="button" id="rectangleButton3">OK</button>
+    </div>
+
+    <div id="container-card-1">
+        <div id="animating-card-1" style="position: absolute; top: 66px; right: 50px">
+            <img id="moving-card-1" src="./image/card2.png" alt="moving-card" width="260" style="position: absolute; top: 120px; right: 50px">
+        </div>
+    </div>
+
+    <div id="container-card-2">
+        <div id="animating-card-2" style="position: absolute; top: 10px; right: 50px">
+            <img id="moving-card-2" src="./image/card2.png" alt="moving-card" width="260" style="position: absolute; top: 290px; right: 50px">
+        </div>
+    </div>
+
+    <script src="./game.js"></script>
+
+</div>
+
+
 </body>
 </html>
