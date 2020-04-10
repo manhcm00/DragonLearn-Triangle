@@ -1,0 +1,139 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo {
+    color: #192a56;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+.logo a{
+    color: #192a56;
+    text-decoration: none;
+}
+
+.banner {
+    width: 100%;
+    height: 15vh;
+    background: #74b9ff;
+    text-align: center;
+    background-size: 100% 100%;
+    background-position: center;
+}
+
+nav {
+    display: flex;
+    height: 6vh;
+    background: #c8d6e5;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #576574;
+    text-decoration: none;
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #273c75;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 1080px) {
+    .nav-links {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    html, body {
+        overflow-x: hidden;
+    }
+    nav {
+        height: 6vh;
+    }
+    .nav-links {
+        position: absolute;
+        height: 82vh;
+        right: 0;
+        top: 18vh;
+        background-color: #c8d6e5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+}
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+    opacity: 0;
+}
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.congratulation {
+    text-align: center;
+    padding: 20px;
+}
+
+.congratulation a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    background: #81ecec;
+    border-radius: 10px;
+}
