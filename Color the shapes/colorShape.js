@@ -1,9 +1,22 @@
 var toolsHidden = document.getElementsByClassName('tools-hidden');
 var buttonNext = document.getElementsByClassName('button-next');
 var hiddenBox = document.getElementsByClassName('hidden-box');
-var circle = document.getElementsByClassName('circle');
-var square = document.getElementsByClassName('square');
+var circles = document.getElementsByClassName('circle');
+var squares = document.getElementsByClassName('square');
+var shapes = document.getElementsByClassName('shape');
+var congratbuttons = document.getElementsByClassName("congratulation");
+var color;
+var paintCorrect = false;
 
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
+  
 function start(){
     var startButton = document.getElementById('start-play');
     var scene = document.getElementsByClassName('scene');
@@ -17,55 +30,73 @@ function onmouseOver(){
 };
 
 function painterAppear(){
-    var n = hiddenBox.length;
+    let n = hiddenBox.length;
+    console.log(n);
     buttonNext[0].style.display='none';
     toolsHidden[0].style.opacity=1;
-    for(var i= 0; i < n; i++){
+    for(let i= 0; i < n; i++){
+        console.log("painter ....");
         hiddenBox[i].style.opacity= 1;
     }
+    console.log("finish");
 };
 
-function changeColor( color){
-    this.document.style.background = color;
+console.log("start adding ...");
+
+for(let i = 0; i < hiddenBox.length; i++){
+    console.log("adding....");
+    let hiddenbox = hiddenBox[i];
+    console.log("add clickHandler");
+    hiddenbox.addEventListener('click', function(){
+        color = hiddenbox.getAttribute("color");
+        console.log(hiddenbox.getAttribute("color"));
+    });
 }
 
-function eraserColor(){
-    circle[0].onclick = changeColor('white');
-    square[0].onclick = changeColor('white');
-}
-
-function paintCircle(){
-    circle[0].onclick = changeColor('red');
-    square[0].onclick = changeColor('red');
-};
-
-function paintSquare(){
-    circle[0].onclick = changeColor('yellow');
-    square[0].onclick = changeColor('yellow');
-}
-// hướng dẫn painter circle 
-
-// thực hành square
-function paintShape(){
-    var n = hiddenBox.length;
-    for( var i = 0; i < n ; i++){
-        if(hiddenBox[i].type === 'circle'){
-            hiddenBox[i].style.cursor='pointer';
-            hiddenBox[i].onclick = paintCircle();
+for (let j = 0; j < shapes.length; j++) {
+    let shape = shapes[j];
+    var numberCorrect = 0;
+    shape.addEventListener('click', function() {
+        shape.style.background = color;
+        if((shape.getAttribute("type") == "square" && color == "blue") || (shape.getAttribute("type") =="circle" && color=="red"))
+        {
+            numberCorrect++;
+            console.log(numberCorrect);
         }
-        if(hiddenBox[i].type === 'square'){
-            hiddenBox[i].style.cursor='pointer';
-            hiddenBox[i].onclick = paintSquare();
+        
+        if(numberCorrect === 2){
+            let congrat = congratbuttons[0];
+            congrat.style.display = "block";
         }
-        if(hiddenBox[i].type === 'eraser'){
-            hiddenBox[i].style.cursor='pointer';
-            hiddenBox[i].onclick = eraserColor();
-        }
-    }
+        console.log(numberCorrect);
+    });  
+
 }
 
-buttonNext.onclick = paintShape;
-// hướng dẫn eraser 
+var congratulationButton = document.getElementsByClassName('congrat-button');
+congratulationButton[0].addEventListener('click',function(){
+    var startButton = document.getElementById('start-play');
+    var scene = document.getElementsByClassName('scene');
+    let congrat = congratbuttons[0];
+    congrat.style.display = "none";
+    startButton.style.display="block";
+    scene[0].style.filter= "blur(5px)";
+    shapes[0].style.color = "white";
+    shapes[1].style.display = 'none';
+    shapes[2].style.display = 'block';
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
