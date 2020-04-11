@@ -121,7 +121,7 @@ congratulationButton[0].addEventListener('click',function(){
 /*
 var circle = document.querySelector('.circle');
 circle.addEventListener('click', function (){
-    this.style.display = 'none' ; 
+    circle.style.display = 'none' ; 
 });
 
 var square = document.querySelector('.square');
