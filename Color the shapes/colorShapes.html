@@ -47,7 +47,7 @@
                                 <span class="speaker"></span>
                                 <span>Let's color the shape!</span>
                             </div>
-                            <div class="button-next">
+                            <div class="button-next" onclick="painterAppear()">
                                 <div class="button-next-link">
                                     <div class="button" style="visibility:hidden">Next</div>
                                     <div class="button-next-text">Next</div>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="tools-hidden">
-                            <div class="hidden-box" style="opacity: 0.2;">
+                            <div class="hidden-box"type='circle' style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
@@ -67,7 +67,7 @@
                                 </div>
                                 <div class="tool-text-brush">Circle</div>
                             </div>
-                            <div class="hidden-box" style="opacity: 0.2;">
+                            <div class="hidden-box"type="square" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
@@ -78,17 +78,15 @@
                                 </div>
                                 <div class="tool-text-brush">Square</div>
                             </div>
-                            <div class="hidden-box" style="opacity: 0.2;">
+                            <div class="hidden-box"type="eraser" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
                                 </div>
                                 <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
-                                <div class="tool-brush">
-                                    
-                                </div>
+                                <div class="tool-blur" style="width: 240px"></div>
                                 <div class="tool-text-brush">Eraser</div>
-                                <div class="tool-eraser"></div>
+                                <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
                         </div>
@@ -107,9 +105,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="start-play" >
+                <div id="start-play" onclick="start()" >
                     <div class="traingle">
-                        <span >start</span>
+                        <span id="start" >start</span>
                     </div>
                 </div>
             </div>
