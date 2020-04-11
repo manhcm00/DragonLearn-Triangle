@@ -9,6 +9,18 @@
 </head>
 
 <body>
+
+<div class="animation-area">
+    <ul class="box-area">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
 <div class="game">
     <div class="head">
         <a href="../ouline/index.html">
@@ -34,31 +46,34 @@
     </div>
 
     <div id="screen-1" class="play-screen">
+        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="triangle" style="position: absolute; top: 85px; left: 140px;">
             <img src="image/triangle1.png" alt="a triangle" id="triangle" width="180">
         </div>
-        <p class="triangleText">tam giác</p>
-        <p class="rectangleText">chữ nhật</p>
+        <p class="text-name-1" id="triangle-text-1">tam giác</p>
+        <p class="text-name-2" id="rectangle-text-1">chữ nhật</p>
         <button class="name-button-1" type="button" id="triangleButton1">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton1">OK</button>
     </div>
 
     <div id="screen-2" class="play-screen">
+        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="circle" style="position: absolute; top: 85px; left: 140px;">
             <img src="./image/circle1.png" alt="a circle" id="circle" width="180">
         </div>
-        <p class="triangleText">tam giác</p>
-        <p class="rectangleText">tròn</p>
+        <p class="text-name-1" id="triangle-text-2">tam giác</p>
+        <p class="text-name-2" id="circle-text-2">tròn</p>
         <button class="name-button-1" type="button" id="rectangleButton2">OK</button>
         <button class="name-button-2" type="button" id="circleButton2">OK</button>
     </div>
 
     <div id="screen-3" class="play-screen">
+        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="rectangle" style="position: absolute; top: 85px; left: 140px;">
             <img src="./image/rectangle1.png" alt="a rectangle" id="rectangle" width="180">
         </div>
-        <p class="triangleText">chữ nhật</p>
-        <p class="rectangleText">tam giác</p>
+        <p class="text-name-1" id="rectangle-text-3">chữ nhật</p>
+        <p class="text-name-2" id="triangle-text-3">tam giác</p>
         <button class="name-button-1" type="button" id="triangleButton3">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton3">OK</button>
     </div>
@@ -74,6 +89,9 @@
             <img id="moving-card-2" src="./image/card2.png" alt="moving-card" width="260" style="position: absolute; top: 290px; right: 50px">
         </div>
     </div>
+
+    <audio id="correct-sound" src="./sound/correct.wav"></audio>
+    <audio id="wrong-sound" src="./sound/wrong.mp3"></audio>
 
     <script src="./game.js"></script>
 

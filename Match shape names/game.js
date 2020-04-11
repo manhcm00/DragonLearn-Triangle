@@ -1,3 +1,5 @@
+const soundCorrect = document.querySelector("#correct-sound");
+const soundWrong = document.querySelector("#wrong-sound");
 
 hideScreens();
 function hideScreens() {
@@ -28,29 +30,35 @@ let isWrong = false;
 //assign result to each button each round
 //Round 1 - the triangle button is right, the other is wrong
 document.getElementById("triangleButton1").addEventListener("click", function () {
+    soundCorrect.play();
     toggleButton("triangle", "rectangle", 1, "off");
-    moveCard1();
+    moveCard1("triangle");
     checkRoundOne(isWrong);
 });
 document.getElementById("rectangleButton1").addEventListener("click", function () {
+    soundWrong.play();
     isWrong = true;
 });
 //Round 2 - the circle button is right, the other is wrong
 document.getElementById("circleButton2").addEventListener("click", function () {
+    soundCorrect.play();
     toggleButton("circle", "rectangle", 2, "off");
-    moveCard2();
+    moveCard2("circle");
     checkRoundTwo(isWrong);
 });
 document.getElementById("rectangleButton2").addEventListener("click", function () {
+    soundWrong.play();
     isWrong = true;
 });
 //Round 3 - the rectangle button is right, the other is wrong
 document.getElementById("triangleButton3").addEventListener("click", function () {
+    soundCorrect.play();
     toggleButton("triangle", "rectangle", 3, "off");
-    moveCard1();
+    moveCard1("rectangle");
     checkRoundThree(isWrong);
 });
 document.getElementById("rectangleButton3").addEventListener("click", function () {
+    soundWrong.play();
     isWrong = true;
 });
 
@@ -122,16 +130,16 @@ function roundFour() {
 
 roundOne();
 
-function moveCard1() {
-    animatingCard(1);
+function moveCard1(cardName) {
+    animatingCard(1, cardName);
 }
 
-function moveCard2() {
-    animatingCard(2);
+function moveCard2(cardName) {
+    animatingCard(2, cardName);
 }
 
 //The animation of the card when player clicks right is all here
-function animatingCard(cardNumber) {
+function animatingCard(cardNumber, cardName) {
     document.getElementById("moving-card-" + cardNumber).src = "./image/card2.png";
     document.querySelector("#container-card-" + cardNumber).style.display = "block";
     let element = document.querySelector("#animating-card-" + cardNumber);
@@ -147,7 +155,17 @@ function animatingCard(cardNumber) {
         }
     }
     setTimeout(function () {
-        document.getElementById("moving-card-" + cardNumber).src = "./image/card3.png";
+        switch (cardName) {
+            case "triangle":
+                document.getElementById("moving-card-" + cardNumber).src = "./image/card5.png";
+                break;
+            case "rectangle":
+                document.getElementById("moving-card-" + cardNumber).src = "./image/card6.png";
+                break;
+            case "circle":
+                document.getElementById("moving-card-" + cardNumber).src = "./image/card7.png";
+                break;
+        }
     }, 600);
 }
 
