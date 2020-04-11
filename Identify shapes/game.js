@@ -139,6 +139,9 @@ function endScreen() {
     }
     if (targets[3].isSleeping && targets[4].isSleeping) {
         progressBalls[2].style.float = 'right';
+        setTimeout(function() {
+            window.location.href = "../win screen/index.html";
+        }, 3000);
     }
 }
 
