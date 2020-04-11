@@ -26,22 +26,23 @@ function painterAppear(){
 };
 
 function changeColor( color){
-    this.document.style.background = color;
+    this.style.background = color;
+    Console.log("color changed");
 }
 
 function eraserColor(){
-    circle[0].onclick = changeColor('white');
-    square[0].onclick = changeColor('white');
+    circle[0].onClick = changeColor('white').bind(circle[0]);
+    square[0].onClick = changeColor('black').bind(circle[0]);
 }
 
 function paintCircle(){
-    circle[0].onclick = changeColor('red');
-    square[0].onclick = changeColor('red');
+    circle[0].onClick = changeColor('red').bind(circle[0]);
+    square[0].onClick = changeColor('red').bind(circle[0]);
 };
 
 function paintSquare(){
-    circle[0].onclick = changeColor('yellow');
-    square[0].onclick = changeColor('yellow');
+    circle[0].onClick = changeColor('yellow');
+    square[0].onClick = changeColor('yellow');
 }
 // hướng dẫn painter circle 
 
@@ -90,7 +91,7 @@ buttonNext.onclick = paintShape;
 /*
 var circle = document.querySelector('.circle');
 circle.addEventListener('click', function (){
-    this.style.display = 'none' ; 
+    circle.style.display = 'none' ; 
 });
 
 var square = document.querySelector('.square');
