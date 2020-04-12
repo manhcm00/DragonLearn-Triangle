@@ -92,7 +92,7 @@ body {
 
 h1 {
     position: absolute;
-    left: 40%;
+    left: 39%;
     top: 17%;
 }
 
@@ -206,48 +206,66 @@ button {
     color: white;
 }
 
-
-#ball1 {
-     position: absolute;
-     width: 28px;
-     height: 28px;
- }
-
-#ball2 {
+.progress-ball-left, .progress-ball-right {
     position: absolute;
-    left: 28px;
     width: 28px;
     height: 28px;
+}
+
+#ball2 {
+    left: 28px;
 }
 
 #ball3 {
-    position: absolute;
     left: 56px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball4 {
-    position: absolute;
     left: 84px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball5 {
-    position: absolute;
     left: 111px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball6 {
-    position: absolute;
     left: 139px;
-    width: 28px;
-    height: 28px;
 }
 
+#ball7 {
+    left: 95%;
+}
 
+#ball8 {
+    left: 89%;
+}
 
+#ball9 {
+    left: 83%;
+}
 
+#ball10 {
+    left: 77%;
+}
+
+#ball11 {
+    left: 71%;
+}
+
+#ball12 {
+    left: 65%;
+}
+
+@keyframes fadeScreen {
+    0%   {opacity: 1;}
+    25%  {opacity: 1;}
+    50%  {opacity: 0.5;}
+    100% {opacity: 0;}
+}
+
+@keyframes appear {
+    0%   {opacity: 0.25;}
+    25%  {opacity: 0.5;}
+    50%  {opacity: 0.75;}
+    100% {opacity: 1;}
+}

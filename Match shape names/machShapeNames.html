@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+<!-- This is the animated background -->
 <div class="animation-area">
     <ul class="box-area">
         <li></li>
@@ -20,31 +20,42 @@
         <li></li>
     </ul>
 </div>
-
+<!-- Background music -->
+<audio src="sound/music.mp3" id="bg-music"></audio>
+<!-- Main game -->
 <div class="game">
+    <!-- The header takes care of scoring and return-to-main-screen button -->
     <div class="head">
+        <!-- Back button -->
         <a href="../ouline/index.html">
             <button type="button" name="button" id="back-button">BACK</button>
         </a>
+        <!-- Progress bar for scoring and decide whether the player has won or not-->
         <div class="beads-wrapper">
             <div class="progressBar">
-                <img src="./image/azBall.png" id="ball1" alt="green-ball">
-                <img src="./image/azBall.png" id="ball2" alt="green-ball">
-                <img src="./image/azBall.png" id="ball3" alt="green-ball">
-                <img src="./image/azBall.png" id="ball4" alt="green-ball">
-                <img src="./image/azBall.png" id="ball5" alt="green-ball">
-                <img src="./image/azBall.png" id="ball6" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball1" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball2" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball3" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball4" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball5" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-left" id="ball6" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball7" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball8" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball9" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball10" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball11" alt="green-ball">
+                <img src="./image/azBall.png" class="progress-ball-right" id="ball12" alt="green-ball">
             </div>
         </div>
     </div>
-
+    <!-- 2 cards contain the names of the shapes -->
     <div class="nameCard" id="name_1" style="position: absolute; top: 120px; right: 50px;">
         <img src="./image/card1.png" alt="card" width="260">
     </div>
     <div class="nameCard" id="name_2" style="position: absolute; top: 290px; right: 50px;">
         <img src="./image/card1.png" alt="card" width="260">
     </div>
-
+    <!-- Begin of screen 1 -->
     <div id="screen-1" class="play-screen">
         <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="triangle" style="position: absolute; top: 85px; left: 140px;">
@@ -55,7 +66,8 @@
         <button class="name-button-1" type="button" id="triangleButton1">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton1">OK</button>
     </div>
-
+    <!-- End of screen 1 -->
+    <!-- Begin of screen 2 -->
     <div id="screen-2" class="play-screen">
         <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="circle" style="position: absolute; top: 85px; left: 140px;">
@@ -66,7 +78,8 @@
         <button class="name-button-1" type="button" id="rectangleButton2">OK</button>
         <button class="name-button-2" type="button" id="circleButton2">OK</button>
     </div>
-
+    <!-- End of screen 2 -->
+    <!-- Begin of screen 3 -->
     <div id="screen-3" class="play-screen">
         <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
         <div class="rectangle" style="position: absolute; top: 85px; left: 140px;">
@@ -77,7 +90,8 @@
         <button class="name-button-1" type="button" id="triangleButton3">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton3">OK</button>
     </div>
-
+    <!-- End of screen 3 -->
+    <!-- These are 2 animated cards when the player clicks right -->
     <div id="container-card-1">
         <div id="animating-card-1" style="position: absolute; top: 66px; right: 50px">
             <img id="moving-card-1" src="./image/card2.png" alt="moving-card" width="260" style="position: absolute; top: 120px; right: 50px">
@@ -89,10 +103,11 @@
             <img id="moving-card-2" src="./image/card2.png" alt="moving-card" width="260" style="position: absolute; top: 290px; right: 50px">
         </div>
     </div>
-
+    <!-- sound effects when player clicks right or wrong -->
     <audio id="correct-sound" src="./sound/correct.wav"></audio>
     <audio id="wrong-sound" src="./sound/wrong.mp3"></audio>
 
+    <!-- The logic of the game is all here -->
     <script src="./game.js"></script>
 
 </div>

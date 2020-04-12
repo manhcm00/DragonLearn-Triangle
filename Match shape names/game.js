@@ -1,5 +1,15 @@
 const soundCorrect = document.querySelector("#correct-sound");
 const soundWrong = document.querySelector("#wrong-sound");
+const backgroundMusic = document.querySelector("#bg-music");
+backgroundMusic.play();
+backgroundMusic.volume = 0.2;
+backgroundMusic.loop = "true";
+const progressBallsLeft = document.querySelectorAll(".progress-ball-left");
+const progressBallsRight = document.querySelectorAll(".progress-ball-right");
+for (let i = 0; i < progressBallsRight.length; i++) {
+    progressBallsRight[i].style.display = "none";
+}
+let roundNumbers = 6;
 
 hideScreens();
 function hideScreens() {
@@ -38,6 +48,8 @@ document.getElementById("triangleButton1").addEventListener("click", function ()
 document.getElementById("rectangleButton1").addEventListener("click", function () {
     soundWrong.play();
     isWrong = true;
+    moveBall();
+    roundNumbers++;
 });
 //Round 2 - the circle button is right, the other is wrong
 document.getElementById("circleButton2").addEventListener("click", function () {
@@ -49,6 +61,8 @@ document.getElementById("circleButton2").addEventListener("click", function () {
 document.getElementById("rectangleButton2").addEventListener("click", function () {
     soundWrong.play();
     isWrong = true;
+    moveBall();
+    roundNumbers++;
 });
 //Round 3 - the rectangle button is right, the other is wrong
 document.getElementById("triangleButton3").addEventListener("click", function () {
@@ -60,12 +74,15 @@ document.getElementById("triangleButton3").addEventListener("click", function ()
 document.getElementById("rectangleButton3").addEventListener("click", function () {
     soundWrong.play();
     isWrong = true;
+    moveBall();
+    roundNumbers++;
 });
 
 //what happens each round is all here
 function roundProcess(roundNumber, roundShape) {
     hideScreens();
     hideMovingCard();
+    document.querySelector("#screen-" + roundNumber).style.animation = "appear 1s ease-in";
     if (roundNumber === 1 || roundNumber === 3) {
         toggleButton("triangle", "rectangle", roundNumber,"on");
     } else {
@@ -86,12 +103,16 @@ function roundOne() {
 //this function checks if player has won round 1 to get to round 2, otherwise return to round 1
 function checkRoundOne(isWrong) {
     if (!isWrong) {
+        roundNumbers--;
+        isWin();
         moveBall();
         setTimeout(function () {
             roundTwo();
         }, 3000);
     } else {
-        roundOne();
+        setTimeout(function () {
+            roundOne();
+        }, 3000);
     }
 }
 
@@ -102,11 +123,16 @@ function roundTwo() {
 //this function checks if player has won round 2 to get to round 3, otherwise return to round 2
 function checkRoundTwo(isWrong) {
     if (!isWrong) {
+        roundNumbers--;
+        isWin();
+        moveBall();
         setTimeout(function () {
             roundThree();
         }, 3000);
     } else {
-        roundTwo();
+        setTimeout(function () {
+            roundThree();
+        }, 3000);
     }
 }
 
@@ -117,10 +143,17 @@ function roundThree() {
 //this function checks if player has won round 3 to get to round 4, otherwise return to round 3
 function checkRoundThree(isWrong) {
     if (!isWrong) {
+        roundNumbers--;
+        isWin();
+        moveBall();
         setTimeout(function () {
             roundFour();
         }, 3000);
-    } else roundThree();
+    } else {
+        setTimeout(function () {
+            roundFour();
+        }, 3000);
+    }
 }
 
 //return to round 1 -> the whole process will be restarted
@@ -169,17 +202,22 @@ function animatingCard(cardNumber, cardName) {
     }, 600);
 }
 
-
+//Check if player clicks right or wrong to move the process balls left or right
 function moveBall() {
-    let element = document.querySelector("#ball6");
-    let position = 150;
-    let id = setInterval(frame, 1);
-    function frame() {
-        if (position === 430) {
-            clearInterval(id);
-        } else {
-            position++;
-            element.style.left = position + "px";
-        }
+    console.log(roundNumbers);
+    if (!isWrong) {
+        progressBallsLeft[roundNumbers].style.display = "none";
+        progressBallsRight[5 - roundNumbers].style.display = "block";
+    } else {
+        progressBallsLeft[roundNumbers].style.display = "block";
+        progressBallsRight[5 - roundNumbers].style.display = "none";
+    }
+}
+
+function isWin() {
+    if (roundNumbers === 0) {
+        setTimeout(function() {
+            window.location.href = "../win screen/index.html";
+        }, 3000);
     }
 }
