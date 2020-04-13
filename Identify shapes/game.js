@@ -9,6 +9,11 @@ function loseHeath() {
     health -= 1;
     let healthLose = healthBar[2 - health];
     healthLose.style.backgroundImage = "url('./image/healthlose.png')";
+    if (health === 0) {
+        setTimeout(function(){
+            window.location.href = "../lose screen/lose.html";
+        },1000)
+    }
 }
 
 let draggedShape = null;
@@ -140,7 +145,7 @@ function endScreen() {
     if (targets[3].isSleeping && targets[4].isSleeping) {
         progressBalls[2].style.float = 'right';
         setTimeout(function() {
-            window.location.href = "../win screen/index.html";
+            window.location.href = "../win screen/winScreen.html";
         }, 3000);
     }
 }
