@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=S, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="../Match%20shape%20names/graphics.css">
+    <script src="https://kit.fontawesome.com/321a531f29.js" crossorigin="anonymous"></script>
     <title>Matching shape names to the actual shapes</title>
 </head>
 
@@ -20,6 +21,8 @@
         <li></li>
     </ul>
 </div>
+<!-- This tag stands for all the speakers in the game -->
+<audio src="" class="speech" hidden></audio>
 <!-- Background music -->
 <audio src="sound/music.mp3" id="bg-music"></audio>
 <!-- Main game -->
@@ -30,6 +33,8 @@
         <a href="../ouline/index.html">
             <button type="button" name="button" id="back-button">BACK</button>
         </a>
+
+        <h3 id="bg-music-speaker"><i class="fas fa-music"></i> Nhạc nền</h3>
         <!-- Progress bar for scoring and decide whether the player has won or not-->
         <div class="beads-wrapper">
             <div class="progressBar">
@@ -57,36 +62,36 @@
     </div>
     <!-- Begin of screen 1 -->
     <div id="screen-1" class="play-screen">
-        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
+        <h1><i class="fas fa-volume-up speaker" message="đây là hình gì"></i> Đây là hình gì?</h1>
         <div class="triangle" style="position: absolute; top: 85px; left: 140px;">
             <img src="image/triangle1.png" alt="a triangle" id="triangle" width="180">
         </div>
-        <p class="text-name-1" id="triangle-text-1">tam giác</p>
-        <p class="text-name-2" id="rectangle-text-1">chữ nhật</p>
+        <p class="text-name-1"><i class="fas fa-volume-down speaker" id="triangle-text-1" message="hình tam giác"></i> Hình tam giác</p>
+        <p class="text-name-2"><i class="fas fa-volume-down speaker" id="rectangle-text-1" message="hình chữ nhật"></i> Hình chữ nhật</p>
         <button class="name-button-1" type="button" id="triangleButton1">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton1">OK</button>
     </div>
     <!-- End of screen 1 -->
     <!-- Begin of screen 2 -->
     <div id="screen-2" class="play-screen">
-        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
+        <h1><i class="fas fa-volume-up speaker" message="đây là hình gì"></i> Đây là hình gì?</h1>
         <div class="circle" style="position: absolute; top: 85px; left: 140px;">
             <img src="./image/circle1.png" alt="a circle" id="circle" width="180">
         </div>
-        <p class="text-name-1" id="triangle-text-2">tam giác</p>
-        <p class="text-name-2" id="circle-text-2">tròn</p>
+        <p class="text-name-1"><i class="fas fa-volume-down speaker" id="triangle-text-2" message="hình tam giác"></i> Hình tam giác</p>
+        <p class="text-name-2"><i class="fas fa-volume-down speaker" id="circle-text-2" message="hình tròn"></i> Hình tròn</p>
         <button class="name-button-1" type="button" id="rectangleButton2">OK</button>
         <button class="name-button-2" type="button" id="circleButton2">OK</button>
     </div>
     <!-- End of screen 2 -->
     <!-- Begin of screen 3 -->
     <div id="screen-3" class="play-screen">
-        <h1><i class="fas fa-volume-up speaker" message="Đây là hình gì?"></i>Đây là hình gì?</h1>
+        <h1><i class="fas fa-volume-up speaker" message="đây là hình gì"></i> Đây là hình gì?</h1>
         <div class="rectangle" style="position: absolute; top: 85px; left: 140px;">
             <img src="./image/rectangle1.png" alt="a rectangle" id="rectangle" width="180">
         </div>
-        <p class="text-name-1" id="rectangle-text-3">chữ nhật</p>
-        <p class="text-name-2" id="triangle-text-3">tam giác</p>
+        <p class="text-name-1"><i class="fas fa-volume-down speaker" id="rectangle-text-3" message="hình chữ nhật"></i> Hình chữ nhật</p>
+        <p class="text-name-2"><i class="fas fa-volume-down speaker" id="triangle-text-3" message="hình tam giác"></i> Hình tam giác</p>
         <button class="name-button-1" type="button" id="triangleButton3">OK</button>
         <button class="name-button-2" type="button" id="rectangleButton3">OK</button>
     </div>
@@ -104,14 +109,27 @@
         </div>
     </div>
     <!-- sound effects when player clicks right or wrong -->
-    <audio id="correct-sound" src="./sound/correct.wav"></audio>
+    <audio id="correct-sound" src="./sound/correct1.wav"></audio>
     <audio id="wrong-sound" src="./sound/wrong.mp3"></audio>
 
     <!-- The logic of the game is all here -->
     <script src="./game.js"></script>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- This script helps player hear audio voices -->
+    <script>
+        $(function() {
+            $('i.speaker').on('click', function(e) {
+                e.preventDefault();
+                let text = $(this).attr("message");
+                text = encodeURIComponent(text);
+                console.log(text);
+                let url = "https://translate.google.com/translate_tts?ie=UTF-8&total=1&idx=0&textlen=32&client=tw-ob&q=" + text + "&tl=vi";
+                $('.speech').attr('src', url).get(0).play();
+            });
+        });
+    </script>
 </div>
-
 
 </body>
 </html>

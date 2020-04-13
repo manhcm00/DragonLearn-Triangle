@@ -1,15 +1,32 @@
+//Sound of the game
 const soundCorrect = document.querySelector("#correct-sound");
 const soundWrong = document.querySelector("#wrong-sound");
 const backgroundMusic = document.querySelector("#bg-music");
 backgroundMusic.play();
 backgroundMusic.volume = 0.2;
 backgroundMusic.loop = "true";
+//Progress balls on the left and right, stand for the number of rounds left and have passed
 const progressBallsLeft = document.querySelectorAll(".progress-ball-left");
 const progressBallsRight = document.querySelectorAll(".progress-ball-right");
+//Hide all the balls on the right at the beginning
 for (let i = 0; i < progressBallsRight.length; i++) {
     progressBallsRight[i].style.display = "none";
 }
 let roundNumbers = 6;
+
+//Player can switch off the background music
+let backgroundSpeaker = document.querySelector("#bg-music-speaker");
+let musicPause = false;
+
+backgroundSpeaker.addEventListener("click", function () {
+    if (!musicPause) {
+        backgroundMusic.pause();
+        musicPause = true;
+    } else {
+        backgroundMusic.play();
+        musicPause = false;
+    }
+});
 
 hideScreens();
 function hideScreens() {
@@ -217,7 +234,7 @@ function moveBall() {
 function isWin() {
     if (roundNumbers === 0) {
         setTimeout(function() {
-            window.location.href = "../win screen/index.html";
+            window.location.href = "../win screen/winScreen.html";
         }, 3000);
     }
 }
