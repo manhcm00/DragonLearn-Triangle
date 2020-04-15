@@ -10,6 +10,13 @@
     margin: 0;
     padding: 0;
 }
+
+#music {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
+
 .animation-area {
     background: linear-gradient(to left, #5353db, #4bc8ff);
     width: 100%;
@@ -140,16 +147,16 @@ h1 {
 
 .text-name-1 {
     position: absolute;
-    right: 130px;
+    right: 107px;
     top: 150px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 .text-name-2 {
     position: absolute;
-    right: 120px;
+    right: 107px;
     bottom: 90px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
 
 button {
@@ -204,6 +211,13 @@ button {
     background-size: 100%;
     background-image: linear-gradient(to top right, orangered, yellow);
     color: white;
+}
+
+#bg-music-speaker {
+    position: absolute;
+    top: 15px;
+    left: 690px;
+    font-size: 1.1rem;
 }
 
 .progress-ball-left, .progress-ball-right {

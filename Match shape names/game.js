@@ -1,15 +1,31 @@
+//Sound of the game
 const soundCorrect = document.querySelector("#correct-sound");
 const soundWrong = document.querySelector("#wrong-sound");
 const backgroundMusic = document.querySelector("#bg-music");
 backgroundMusic.play();
 backgroundMusic.volume = 0.2;
 backgroundMusic.loop = "true";
+//Progress balls on the left and right, stand for the number of rounds left and have passed
 const progressBallsLeft = document.querySelectorAll(".progress-ball-left");
 const progressBallsRight = document.querySelectorAll(".progress-ball-right");
+//Hide all the balls on the right at the beginning
 for (let i = 0; i < progressBallsRight.length; i++) {
     progressBallsRight[i].style.display = "none";
 }
 let roundNumbers = 6;
+
+//Player can switch off the background music
+let backgroundSpeaker = document.querySelector("#bg-music-speaker");
+let musicPause = false;
+backgroundSpeaker.addEventListener("click", function () {
+    if (!musicPause) {
+        backgroundMusic.pause();
+        musicPause = true;
+    } else {
+        backgroundMusic.play();
+        musicPause = false;
+    }
+});
 
 hideScreens();
 function hideScreens() {
@@ -96,24 +112,34 @@ function roundProcess(roundNumber, roundShape) {
     shape.src = "./image/" + roundShape + randomImage + ".png";
 }
 
+function checkRound(round) {
+    if (!isWrong) {
+        roundNumbers--;
+        isWin();
+        moveBall();
+    }
+    setTimeout(function () {
+        switch (round) {
+            case 1:
+                roundTwo();
+                break;
+            case 2:
+                roundThree();
+                break;
+            case 3:
+                roundFour();
+                break;
+        }
+    }, 3000);
+}
+
 function roundOne() {
     roundProcess(1, "triangle");
 }
 
 //this function checks if player has won round 1 to get to round 2, otherwise return to round 1
-function checkRoundOne(isWrong) {
-    if (!isWrong) {
-        roundNumbers--;
-        isWin();
-        moveBall();
-        setTimeout(function () {
-            roundTwo();
-        }, 3000);
-    } else {
-        setTimeout(function () {
-            roundOne();
-        }, 3000);
-    }
+function checkRoundOne() {
+    checkRound(1);
 }
 
 function roundTwo() {
@@ -121,19 +147,8 @@ function roundTwo() {
 }
 
 //this function checks if player has won round 2 to get to round 3, otherwise return to round 2
-function checkRoundTwo(isWrong) {
-    if (!isWrong) {
-        roundNumbers--;
-        isWin();
-        moveBall();
-        setTimeout(function () {
-            roundThree();
-        }, 3000);
-    } else {
-        setTimeout(function () {
-            roundThree();
-        }, 3000);
-    }
+function checkRoundTwo() {
+    checkRound(2);
 }
 
 function roundThree() {
@@ -141,19 +156,8 @@ function roundThree() {
 }
 
 //this function checks if player has won round 3 to get to round 4, otherwise return to round 3
-function checkRoundThree(isWrong) {
-    if (!isWrong) {
-        roundNumbers--;
-        isWin();
-        moveBall();
-        setTimeout(function () {
-            roundFour();
-        }, 3000);
-    } else {
-        setTimeout(function () {
-            roundFour();
-        }, 3000);
-    }
+function checkRoundThree() {
+    checkRound(3);
 }
 
 //return to round 1 -> the whole process will be restarted
@@ -217,7 +221,7 @@ function moveBall() {
 function isWin() {
     if (roundNumbers === 0) {
         setTimeout(function() {
-            window.location.href = "../win screen/index.html";
+            window.location.href = "../win screen/winScreen.html";
         }, 3000);
     }
 }
