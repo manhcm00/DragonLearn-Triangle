@@ -11,7 +11,7 @@ function loseHeath() {
     healthLose.style.backgroundImage = "url('./image/healthlose.png')";
     if (health === 0) {
         setTimeout(function(){
-            window.location.href = "../lose screen/lose.html";
+            window.location.href = "../lose screen/loseScreen.html";
         },1000)
     }
 }
