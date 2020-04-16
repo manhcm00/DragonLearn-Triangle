@@ -1,3 +1,6 @@
+let sound = document.querySelector("#you-won");
+sound.play();
+
 const navSlide = () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');

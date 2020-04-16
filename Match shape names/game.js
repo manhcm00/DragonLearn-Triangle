@@ -2,17 +2,19 @@
 const soundCorrect = document.querySelector("#correct-sound");
 const soundWrong = document.querySelector("#wrong-sound");
 const backgroundMusic = document.querySelector("#bg-music");
+
 backgroundMusic.play();
 backgroundMusic.volume = 0.2;
 backgroundMusic.loop = "true";
+
 //Progress balls on the left and right, stand for the number of rounds left and have passed
 const progressBallsLeft = document.querySelectorAll(".progress-ball-left");
 const progressBallsRight = document.querySelectorAll(".progress-ball-right");
+
 //Hide all the balls on the right at the beginning
 for (let i = 0; i < progressBallsRight.length; i++) {
     progressBallsRight[i].style.display = "none";
 }
-let roundNumbers = 6;
 
 //Player can switch off the background music
 let backgroundSpeaker = document.querySelector("#bg-music-speaker");
@@ -26,6 +28,8 @@ backgroundSpeaker.addEventListener("click", function () {
         musicPause = false;
     }
 });
+
+let roundNumbers = 6;
 
 hideScreens();
 function hideScreens() {
@@ -95,9 +99,11 @@ document.getElementById("rectangleButton3").addEventListener("click", function (
 });
 
 //what happens each round is all here
-function roundProcess(roundNumber, roundShape) {
+function roundProcess(roundNumber, correctShape) {
+    //Hide all the screens and the animated card at the beginning
     hideScreens();
     hideMovingCard();
+    //The screen appears with its own buttons and random shapes
     document.querySelector("#screen-" + roundNumber).style.animation = "appear 1s ease-in";
     if (roundNumber === 1 || roundNumber === 3) {
         toggleButton("triangle", "rectangle", roundNumber,"on");
@@ -108,8 +114,8 @@ function roundProcess(roundNumber, roundShape) {
     document.querySelector("#screen-" + roundNumber).style.display = "block";
 
     const randomImage = Math.floor(Math.random() * 10) + 1;
-    const shape = document.querySelector("#" + roundShape);
-    shape.src = "./image/" + roundShape + randomImage + ".png";
+    const shape = document.querySelector("#" + correctShape);
+    shape.src = "./image/" + correctShape + randomImage + ".png";
 }
 
 function checkRound(round) {
@@ -137,7 +143,7 @@ function roundOne() {
     roundProcess(1, "triangle");
 }
 
-//this function checks if player has won round 1 to get to round 2, otherwise return to round 1
+//this function checks if player has won round 1 or not
 function checkRoundOne() {
     checkRound(1);
 }
@@ -146,7 +152,7 @@ function roundTwo() {
     roundProcess(2, "circle");
 }
 
-//this function checks if player has won round 2 to get to round 3, otherwise return to round 2
+//this function checks if player has won round 2 or not
 function checkRoundTwo() {
     checkRound(2);
 }
@@ -155,7 +161,7 @@ function roundThree() {
     roundProcess(3, "rectangle");
 }
 
-//this function checks if player has won round 3 to get to round 4, otherwise return to round 3
+//this function checks if player has won round 3 or not
 function checkRoundThree() {
     checkRound(3);
 }
