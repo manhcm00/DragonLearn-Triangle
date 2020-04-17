@@ -10,6 +10,13 @@
     margin: 0;
     padding: 0;
 }
+
+#music {
+    position: absolute;
+    left: 30%;
+    top: 20%;
+}
+
 .animation-area {
     background: linear-gradient(to left, #5353db, #4bc8ff);
     width: 100%;
@@ -88,11 +95,12 @@ body {
     font-size: 14px;
     height: 100vh;
     overflow: hidden;
+    user-select: none;
 }
 
 h1 {
     position: absolute;
-    left: 40%;
+    left: 36%;
     top: 17%;
 }
 
@@ -100,11 +108,11 @@ h1 {
     background-size: 100%;
     position: absolute;
     width: 818px;
-    height: 450px;
+    height: 500px;
     margin: auto;
     left: 0;
     right: 0;
-    top: 125px;
+    top: 100px;
 
     background: #FFFFFF;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.40);
@@ -138,18 +146,26 @@ h1 {
     border-radius: 15px;
 }
 
+#bg-music-speaker:hover {
+    color: orangered;
+}
+
+.speaker:hover {
+    color: orangered;
+}
+
 .text-name-1 {
     position: absolute;
-    right: 130px;
-    top: 150px;
-    font-size: 1.8rem;
+    right: 107px;
+    top: 170px;
+    font-size: 1.5rem;
 }
 
 .text-name-2 {
     position: absolute;
-    right: 120px;
-    bottom: 90px;
-    font-size: 1.8rem;
+    right: 107px;
+    bottom: 130px;
+    font-size: 1.5rem;
 }
 
 button {
@@ -173,7 +189,7 @@ button {
 .name-button-1 {
     position: absolute;
     right: 140px;
-    top: 200px;
+    top: 220px;
 }
 
 .name-button-1:hover {
@@ -185,7 +201,7 @@ button {
 .name-button-2 {
     position: absolute;
     right: 140px;
-    bottom: 45px;
+    bottom: 80px;
 }
 
 .name-button-2:hover {
@@ -206,48 +222,73 @@ button {
     color: white;
 }
 
-
-#ball1 {
-     position: absolute;
-     width: 28px;
-     height: 28px;
- }
-
-#ball2 {
+#bg-music-speaker {
     position: absolute;
-    left: 28px;
+    top: 15px;
+    left: 690px;
+    font-size: 1.1rem;
+}
+
+.progress-ball-left, .progress-ball-right {
+    position: absolute;
     width: 28px;
     height: 28px;
+}
+
+#ball2 {
+    left: 28px;
 }
 
 #ball3 {
-    position: absolute;
     left: 56px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball4 {
-    position: absolute;
     left: 84px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball5 {
-    position: absolute;
     left: 111px;
-    width: 28px;
-    height: 28px;
 }
 
 #ball6 {
-    position: absolute;
     left: 139px;
-    width: 28px;
-    height: 28px;
 }
 
+#ball7 {
+    left: 95%;
+}
 
+#ball8 {
+    left: 89%;
+}
 
+#ball9 {
+    left: 83%;
+}
 
+#ball10 {
+    left: 77%;
+}
+
+#ball11 {
+    left: 71%;
+}
+
+#ball12 {
+    left: 65%;
+}
+
+@keyframes fadeScreen {
+    0%   {opacity: 1;}
+    25%  {opacity: 1;}
+    50%  {opacity: 0.5;}
+    100% {opacity: 0;}
+}
+
+@keyframes appear {
+    0%   {opacity: 0.25;}
+    25%  {opacity: 0.5;}
+    50%  {opacity: 0.75;}
+    100% {opacity: 1;}
+}

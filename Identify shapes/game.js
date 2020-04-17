@@ -9,6 +9,18 @@ function loseHeath() {
     health -= 1;
     let healthLose = healthBar[2 - health];
     healthLose.style.backgroundImage = "url('./image/healthlose.png')";
+    if (health === 0) {
+        setTimeout(function(){
+            window.location.href = "../lose screen/loseScreen.html";
+        },1000)
+    }
+}
+
+function resetHeathBar() {
+    health = 3;
+    for (let healthIcon of healthBar) {
+        healthIcon.style.backgroundImage = "url('./image/health.png')"
+    }
 }
 
 let draggedShape = null;
@@ -127,6 +139,7 @@ function endScreen() {
             screen2.style.display = 'block';
             screen2.style.animation = `appear 2s ease-in`;
         }, 3000);
+        resetHeathBar();
     }
     if (targets[2].isSleeping) {
         screen2.style.animation = `fadeScreen 3s ease-in`;
@@ -136,11 +149,12 @@ function endScreen() {
             screen3.style.display = 'block';
             screen3.style.animation = `appear 2s ease-in`;
         }, 3000);
+        resetHeathBar();
     }
     if (targets[3].isSleeping && targets[4].isSleeping) {
         progressBalls[2].style.float = 'right';
         setTimeout(function() {
-            window.location.href = "../win screen/index.html";
+            window.location.href = "../win screen/winScreen.html";
         }, 3000);
     }
 }

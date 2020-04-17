@@ -1,4 +1,4 @@
-let sound = document.querySelector("#you-won");
+let sound = document.querySelector("#you-lose");
 sound.play();
 
 const navSlide = () => {
