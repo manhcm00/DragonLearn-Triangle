@@ -100,7 +100,7 @@ body {
 
 h1 {
     position: absolute;
-    left: 39%;
+    left: 36%;
     top: 17%;
 }
 
@@ -108,11 +108,11 @@ h1 {
     background-size: 100%;
     position: absolute;
     width: 818px;
-    height: 450px;
+    height: 500px;
     margin: auto;
     left: 0;
     right: 0;
-    top: 125px;
+    top: 100px;
 
     background: #FFFFFF;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.40);
@@ -157,14 +157,14 @@ h1 {
 .text-name-1 {
     position: absolute;
     right: 107px;
-    top: 150px;
+    top: 170px;
     font-size: 1.5rem;
 }
 
 .text-name-2 {
     position: absolute;
     right: 107px;
-    bottom: 90px;
+    bottom: 130px;
     font-size: 1.5rem;
 }
 
@@ -189,7 +189,7 @@ button {
 .name-button-1 {
     position: absolute;
     right: 140px;
-    top: 200px;
+    top: 220px;
 }
 
 .name-button-1:hover {
@@ -201,7 +201,7 @@ button {
 .name-button-2 {
     position: absolute;
     right: 140px;
-    bottom: 45px;
+    bottom: 80px;
 }
 
 .name-button-2:hover {

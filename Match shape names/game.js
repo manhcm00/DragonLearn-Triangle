@@ -189,7 +189,7 @@ function animatingCard(cardNumber, cardName) {
     let position = 0;
     let id = setInterval(frame, 2);
     function frame() {
-        if (position === 180) {
+        if (position === 200) {
             clearInterval(id);
         } else {
             position++;
