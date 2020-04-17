@@ -3,11 +3,18 @@ var buttonNext = document.getElementsByClassName('button-next');
 var hiddenBox = document.getElementsByClassName('hidden-box');
 var circles = document.getElementsByClassName('circle');
 var squares = document.getElementsByClassName('square');
+var triangle = document.getElementsByClassName('traingleShape');
 var shapes = document.getElementsByClassName('shape');
 var congratbuttons = document.getElementsByClassName("congratulation");
+var congratulationButton = document.getElementsByClassName('congrat-button');
+var buttonDone = document.getElementsByClassName('button-done');
 var color;
 var paintCorrect = false;
-
+var appear1 = document.getElementsByClassName('appear1');
+var appear2 = document.getElementsByClassName('appear2');
+var appear3 = document.getElementsByClassName('appear3');
+var appear4 = document.getElementsByClassName('appear4');
+var apearX = 1;
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -57,8 +64,19 @@ for (let j = 0; j < shapes.length; j++) {
     let shape = shapes[j];
     var numberCorrect = 0;
     shape.addEventListener('click', function() {
-        shape.style.background = color;
-        if((shape.getAttribute("type") == "square" && color == "blue") || (shape.getAttribute("type") =="circle" && color=="red"))
+        let buttondone = buttonDone[0];
+     //   if(buttondone.style.display !== 'none'){
+     //       buttondone.style.opacity = '1';
+     //   }   
+     //   console.log(buttondone.style.opacity);
+        if(shape.getAttribute("type") === "traingle" ){
+            shape.style.color = color;
+        }
+        else{
+            shape.style.background = color;
+        }
+        
+        if((shape.getAttribute("type") == "square" && color == "blue")|| (shape.getAttribute("type") =="circle" && color=="red"))
         {
             numberCorrect++;
             console.log(numberCorrect);
@@ -67,13 +85,15 @@ for (let j = 0; j < shapes.length; j++) {
         if(numberCorrect === 2){
             let congrat = congratbuttons[0];
             congrat.style.display = "block";
+            numberCorrect = -100;
         }
         console.log(numberCorrect);
     });  
-
+}
+for( let i = 0; i < shapes.length; i++){
+    shapes[i].style.background = "";
 }
 
-var congratulationButton = document.getElementsByClassName('congrat-button');
 congratulationButton[0].addEventListener('click',function(){
     var startButton = document.getElementById('start-play');
     var scene = document.getElementsByClassName('scene');
@@ -81,12 +101,74 @@ congratulationButton[0].addEventListener('click',function(){
     congrat.style.display = "none";
     startButton.style.display="block";
     scene[0].style.filter= "blur(5px)";
-    shapes[0].style.color = "white";
-    shapes[1].style.display = 'none';
-    shapes[2].style.display = 'block';
+    for( let i = 0; i < appear1.length; i++){
+        appear1[i].style.display = "none";
+    }
+    for( let i = 0; i < appear2.length; i++){
+        appear2[i].style.display = "inline-block";
+        apearX = 2;
+    }
+    buttonDone[0].style.display = "inline-block";
 });
 
-
+console.log('buttonDone');
+var buttondone = buttonDone[0];
+var buttonwrong = document.getElementsByClassName('button-done_wrong');
+var buttonright = document.getElementsByClassName('button-done_right');
+var buttonPlaceholder = document.getElementsByClassName("button-done_placeholder");
+buttondone.addEventListener('click', function(){
+    let circleColor = "";
+    let squareColor = "";
+    let traingleColor = "";
+    console.log(hiddenBox.length);
+    for( let i = 0; i < hiddenBox.length; i ++){
+        let hiddenbox = hiddenBox[i];
+        if(  hiddenbox.getAttribute('type') === 'circle'){
+            circleColor = hiddenbox.getAttribute('color');
+        }
+        else if(hiddenbox.getAttribute('type') === 'square'){
+            squareColor = hiddenbox.getAttribute('color');
+        }
+        else {
+            traingleColor = hiddenbox.getAttribute('color');
+        }
+        
+        console.log(circleColor);
+        console.log(squareColor);
+        console.log(traingleColor);
+    }
+    for( let i = 0; i < shapes.length; i++){
+        let numberCorrect = 0;
+        let shape = shapes[i];
+        if( (shape.getAttribute('type') === 'circle' && color !== circleColor)
+            || (shape.getAttribute('type') === 'square' && color !== squareColor)
+            || (shape.getAttribute('type') === 'traingle' && color !== traingleColor)){
+            numberCorrect ++;
+            buttonwrong[0].style.opacity = 1;
+            buttonPlaceholder[0].style.visibility = "visible";
+            if(shape.getAttribute("type") === "traingle" ){
+                shape.style = "-webkit-text-stroke : 10px red";
+            }
+            else{
+                shape.style.border = "10px solid red";
+            }  
+        }
+        if(numberCorrect === 0){
+            buttonright[0].style.opacity = 1;
+            buttonPlaceholder[0].style.visibility = "visible";
+     /*       let congrat = congratbuttons[0];
+            congrat.style.display = "block";
+            for( let i = 0; i < appear2.length; i++){
+                appear2[i].style.display = "none";
+            }
+            for( let i = 0; i < appear3.length; i++){
+                appear3[i].style.display = "inline-block";
+            }
+            */
+        }
+        
+    }
+});
 
 
 

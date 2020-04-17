@@ -12,7 +12,9 @@
     <div id = "divBackground" > </div>
     <div style="width: 0px; height: 0px; overflow: hidden;"> </div>
     <div class="game">
+        <!-- Tạo thanh processBar và các phần liên quan-->
         <div class="head">
+            <!-- Tạo nút Back-->
             <a class="back-link" style href="../ouline/index.html">
                 <div class="arrow-left" > </div>
                 <span> Back </span>
@@ -23,6 +25,7 @@
                     <span class="dropdown-toggle-caret"></span>
                 </a>
             </div>
+            <!-- Tạo thanh ProcessBar-->
             <div class="beads-wrapper">
                 <div id="process">
                     <div class="inner-process">
@@ -34,15 +37,21 @@
                 </div>
             </div>
         </div>
+        <!-- Tạo màn hình chính-->
         <div class="card-content">
             <div id="board" class="player" >
+                <!-- Màn hình chơi -->
                 <div class="scene">
+                    <!-- Phần hình học thao tác-->
                     <div class="figure">
-                        <div class="shape circle" type="circle" ></div>
-                        <div class="shape square"type="square" ></div>
-                        <div class="shape traingleShape" type="traingle" >&#9650;</div>
+                        <div class="shape circle appear1 " type="circle" ></div>
+                        <div class="shape circle appear2" type="circle"></div>
+                        <div class="shape square appear1"type="square" ></div>
+                        <div class="shape traingleShape appear2" type="traingle" >&#9650;</div>
                     </div>
+                    <!-- Các xử lý liên quan đến painter-->
                     <div class="right-act"> 
+                        <!-- Phần lời dẫn-->
                         <div class="title">
                             <div class="sound">
                                 <span class="speaker"></span>
@@ -56,8 +65,10 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Phần thao tác painter gồm 3 hiddenBox-->
                         <div class="tools-hidden">
-                            <div class="hidden-box" color="red" type='circle' style="opacity: 0.2;">
+                            <!-- Tools-hidden screen1-->
+                            <div class="hidden-box appear1" color="red" type='circle' style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
@@ -68,7 +79,7 @@
                                 </div>
                                 <div class="tool-text-brush">Hình tròn</div>
                             </div>
-                            <div class="hidden-box" color="blue" type="square" style="opacity: 0.2;">
+                            <div class="hidden-box appear1" color="blue" type="square" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
@@ -79,7 +90,7 @@
                                 </div>
                                 <div class="tool-text-brush">Hình vuông</div>
                             </div>
-                            <div class="hidden-box"type="eraser" color="white" style="opacity: 0.2;">
+                            <div class="hidden-box appear1"type="eraser" color="white" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
                                 <div class="small-speaker">
                                     <span class="speaker-small"></span>
@@ -90,7 +101,111 @@
                                 <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
+                            <!-- Tools-hidden screen2-->
+                            <div class="hidden-box appear2" color="yellow" type='traingle' style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình tam giác</div>
+                            </div>
+                            <div class="hidden-box appear2" color="brown" type="circle" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình tròn</div>
+                            </div>
+                            <div class="hidden-box appear2" type="eraser" color="white" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-blur" style="width: 240px"></div>
+                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-eraser" onclick="eraserColor()"></div>
+                                
+                            </div>
+                            <!-- Tools-hidden screen3-->
+                            <div class="hidden-box appear3" color="orange" type='traingle' style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình tam giác</div>
+                            </div>
+                            <div class="hidden-box appear3" color="green" type="square" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình vuông</div>
+                            </div>
+                            <div class="hidden-box appear3" type="eraser" color="white" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-blur" style="width: 240px"></div>
+                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-eraser" onclick="eraserColor()"></div>
+                                
+                            </div>
+                            <!-- Tools-hidden screen4-->
+                            <div class="hidden-box appear4" color="violet" type='circle' style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình tròn</div>
+                            </div>
+                            <div class="hidden-box appear4" color="pink" type="traingle" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-brush">
+                                    
+                                </div>
+                                <div class="tool-text-brush">Hình tam giác</div>
+                            </div>
+                            <div class="hidden-box appear4" type="eraser" color="white" style="opacity: 0.2;">
+                                <div class="tool-painter" style="display: block;"></div>
+                                <div class="small-speaker">
+                                    <span class="speaker-small"></span>
+                                </div>
+                                <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
+                                <div class="tool-blur" style="width: 240px"></div>
+                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-eraser" onclick="eraserColor()"></div>
+                                
+                            </div>
+
                         </div>
+                        <!-- Màn hình chúc mừng và chuyển màn-->
                         <div class="congratulation">
                             <div class="congrat-button">                             
                                 <div class="congrat-button-next">
@@ -103,8 +218,18 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Nút Done kiểm tra đáp án và chuyển màn chơi-->
+                        <div class="Done">
+                            <div class="button-done">
+                                <div class="button-done_placeholder" >Xong!</div>
+                                <div class="button-done_wrong"></div>
+                                <div class="button-done_right"></div>
+                                <div class="button-done_text">Xong!</div>
+                            </div>
+                        </div>                    
                     </div>
                 </div>
+                <!-- Nút Start bắt đầu màn chơi -->
                 <div id="start-play" onclick="start()" >
                     <div class="traingle">
                         <span id="start" >start</span>

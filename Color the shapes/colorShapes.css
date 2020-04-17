@@ -429,6 +429,75 @@ body.card-content{
     color: #fff;
 }
 
+.Done{
+    width: 420px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.button-done{
+    cursor: default;
+    opacity: 1;
+    height: 41px;
+    padding: 2px 14px;
+    border-radius: 5px;
+    position: absolute;
+    right: 170px;
+    z-index: 999;
+    top: 100%;
+    margin-top: -70px;
+    background: #6ec3e2;
+    display: none;
+    /* display: inline-block*/
+}
+
+.button-done_placeholder{
+    visibility: hidden;
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    white-space: nowrap;
+    padding: 7px 0 6px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    color: #fff;
+}
+
+.button-done_wrong{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background: #ff5768;
+    opacity: 0;
+}
+
+.button-done_right{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background: #8fb8f2;
+    opacity: 0;
+}
+
+.button-done_text{
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    white-space: nowrap;
+    padding: 7px 0 6px;
+    left: 14px;
+    top: 5px;
+    position: absolute;
+    color: #fff;
+}
 .back-link:hover{
     opacity: 0.5;
 }
@@ -473,7 +542,21 @@ body.card-content{
     color: transparent; 
     font-size: 280px; 
     margin-top: -50px;
+    cursor: default;
 }
+
 .button-next :hover{
     opacity: 1;
+}
+
+.appear2{
+    display: none;
+}
+
+.appear3{
+    display: none;
+}
+
+.appear4{
+    display: none;
 }
