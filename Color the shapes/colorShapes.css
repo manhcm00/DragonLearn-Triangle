@@ -322,12 +322,11 @@ body.card-content{
 .tool-brush{
     height:60px;
     width: 60px;
-    background-image: url("./image/painter.png");
     cursor: pointer;
 }
 
 .tool-text-brush{
-    margin-left: 60px;
+    margin-left: 00px;
     margin-top: -65px;
     font-size: 26px;
     float: left;
@@ -335,6 +334,17 @@ body.card-content{
     cursor: default;
 }
 
+.tool-text-brush1{
+    margin-left: 60px;
+    margin-top: -65px;
+    font-size: 26px;
+    float: left;
+    padding-top: 11px;
+    cursor: default;
+}
+.fas {
+    margin-right: 10px;
+}
 .tool-select{
     position: absolute;
     top: 9px;
@@ -429,6 +439,75 @@ body.card-content{
     color: #fff;
 }
 
+.Done{
+    width: 420px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.button-done{
+    cursor: default;
+    opacity: 1;
+    height: 41px;
+    padding: 2px 14px;
+    border-radius: 5px;
+    position: absolute;
+    right: 170px;
+    z-index: 999;
+    top: 100%;
+    margin-top: -70px;
+    background: #6ec3e2;
+    display: none;
+    /* display: inline-block*/
+}
+
+.button-done_placeholder{
+    visibility: hidden;
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    white-space: nowrap;
+    padding: 7px 0 6px;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    color: #fff;
+}
+
+.button-done_wrong{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background: #ff5768;
+    opacity: 0;
+}
+
+.button-done_right{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    background: #00ff33;
+    opacity: 0;
+}
+
+.button-done_text{
+    display: block;
+    font-size: 24px;
+    line-height: 28px;
+    white-space: nowrap;
+    padding: 7px 0 6px;
+    left: 14px;
+    top: 5px;
+    position: absolute;
+    color: #fff;
+}
 .back-link:hover{
     opacity: 0.5;
 }
@@ -473,7 +552,165 @@ body.card-content{
     color: transparent; 
     font-size: 280px; 
     margin-top: -50px;
+    cursor: default;
 }
+
+.traingleShape1{
+    margin-left: -45px;
+    -webkit-text-stroke: 4px black; 
+    color: transparent; 
+    font-size: 150px; 
+    margin-top: -50px;
+    cursor: default;
+}
+
+.traingleShape2{
+    margin-left: -45px;
+    -webkit-text-stroke: 4px black; 
+    color: transparent; 
+    font-size: 100px; 
+    margin-top: -50px;
+    cursor: default;
+}
+.square1{
+    display: block;
+    margin-top: 50px;
+    width: 100px;
+    height: 120px;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+
+.square2{
+    display: block;
+    margin-top: 50px;
+    width: 60px;
+    height: 60px;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.circle1{
+    display: block;
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.circle2{
+    display: block;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.rotateShape1{
+  transform: rotate(20deg);
+}
+
+.rotateShape2{
+  transform: rotate(-35deg);
+}
+
+
+.traingleShape3{
+    margin-left: -45px;
+    -webkit-text-stroke: 4px black; 
+    color: transparent; 
+    font-size: 150px; 
+    margin-top: -50px;
+    cursor: default;
+}
+
+.traingleShape4{
+    margin-left: -45px;
+    -webkit-text-stroke: 4px black; 
+    color: transparent; 
+    font-size: 150px; 
+    margin-top: -50px;
+    cursor: default;
+}
+.square3{
+    display: block;
+    margin-top: 50px;
+    width: 120px;
+    height: 60px;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+
+.square4{
+    display: block;
+    margin-top: 50px;
+    width: 60px;
+    height: 60px;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.circle3{
+    display: block;
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.circle4{
+    display: block;
+    width: 150px;
+    height:150px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.circle5{
+    display: block;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    border: 4px solid #000000;
+    background-color: white;
+    opacity: 1;
+}
+
+.rotateShape3{
+  transform: rotate(20deg);
+}
+
+.rotateShape4{
+  transform: rotate(-90deg);
+}
+
+
 .button-next :hover{
     opacity: 1;
+}
+
+.appear2{
+    display: none;
+}
+
+.appear3{
+    display: none;
+}
+
+.appear4{
+    display: none;
 }
