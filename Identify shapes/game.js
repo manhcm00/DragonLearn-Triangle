@@ -3,6 +3,39 @@ const targets = document.querySelectorAll('.targets');
 const healthBar = document.querySelectorAll('.health');
 const progressBalls = document.querySelectorAll('.progress-ball');
 
+const screen1 = document.querySelector('#screen1');
+const screen2 = document.querySelector('#screen2');
+const screen3 = document.querySelector('#screen3');
+
+function endScreen() {
+    if (targets[0].isSleeping && targets[1].isSleeping) {
+        screen1.style.animation = `fadeScreen 3s ease-in`;
+        progressBalls[0].style.float = 'right';
+        setTimeout(function() {
+            screen1.style.display = 'none';
+            screen2.style.display = 'block';
+            screen2.style.animation = `appear 2s ease-in`;
+        }, 3000);
+        resetHeathBar();
+    }
+    if (targets[2].isSleeping) {
+        screen2.style.animation = `fadeScreen 3s ease-in`;
+        progressBalls[1].style.float = 'right';
+        setTimeout(function() {
+            screen2.style.display = 'none';
+            screen3.style.display = 'block';
+            screen3.style.animation = `appear 2s ease-in`;
+        }, 3000);
+        resetHeathBar();
+    }
+    if (targets[3].isSleeping && targets[4].isSleeping) {
+        progressBalls[2].style.float = 'right';
+        setTimeout(function() {
+            window.location.href = "../win screen/winScreen.html";
+        }, 3000);
+    }
+}
+
 var health = 3;
 
 function loseHeath() {
@@ -105,6 +138,8 @@ for (let j = 0; j < targets.length; j ++) {
     })
 
     target.addEventListener('drop', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         if (target.blanksOfstomach !== 0) {
             if (draggedShape.getAttribute("type") === target.getAttribute("target")) {
                 draggedShape.isDisappear = true;
@@ -124,38 +159,5 @@ for (let j = 0; j < targets.length; j ++) {
             console.log(target.id);
         }
     });
-}
-
-const screen1 = document.querySelector('#screen1');
-const screen2 = document.querySelector('#screen2');
-const screen3 = document.querySelector('#screen3');
-
-function endScreen() {
-    if (targets[0].isSleeping && targets[1].isSleeping) {
-        screen1.style.animation = `fadeScreen 3s ease-in`;
-        progressBalls[0].style.float = 'right';
-        setTimeout(function() {
-            screen1.style.display = 'none';
-            screen2.style.display = 'block';
-            screen2.style.animation = `appear 2s ease-in`;
-        }, 3000);
-        resetHeathBar();
-    }
-    if (targets[2].isSleeping) {
-        screen2.style.animation = `fadeScreen 3s ease-in`;
-        progressBalls[1].style.float = 'right';
-        setTimeout(function() {
-            screen2.style.display = 'none';
-            screen3.style.display = 'block';
-            screen3.style.animation = `appear 2s ease-in`;
-        }, 3000);
-        resetHeathBar();
-    }
-    if (targets[3].isSleeping && targets[4].isSleeping) {
-        progressBalls[2].style.float = 'right';
-        setTimeout(function() {
-            window.location.href = "../win screen/winScreen.html";
-        }, 3000);
-    }
 }
 
