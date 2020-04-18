@@ -483,7 +483,7 @@ body.card-content{
     height: 100%;
     width: 100%;
     border-radius: 5px;
-    background: #8fb8f2;
+    background: #00ff33;
     opacity: 0;
 }
 
@@ -545,6 +545,15 @@ body.card-content{
     cursor: default;
 }
 
+.traingleShapeWrong{
+    margin-left: -45px;
+    -webkit-text-stroke: 10px red; 
+    color: brown; 
+    font-size: 280px; 
+    margin-top: -50px;
+    cursor: default;
+    display: none;
+}
 .button-next :hover{
     opacity: 1;
 }
