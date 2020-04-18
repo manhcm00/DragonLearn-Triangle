@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=S, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link type="text/css" rel="stylesheet" href="./colorShapes.css" />
-    
+    <script src="https://kit.fontawesome.com/272f845c52.js" crossorigin="anonymous"></script>
     <title>Color in the shapes</title>
 </head>
 <body >
@@ -48,10 +48,34 @@
                         <div class="shape circle appear2" type="circle"></div>
                         <div class="shape square appear1"type="square" ></div>
                         <div class="shape traingleShape appear2" type="traingle" >&#9650;</div>
-                        <div class="shape traingleShapeWrong" type="traingle" >&#9650;</div>
+                        <!-- hình screen3-->
+                        <div class="shape appear3">
+                            <div class="shape circle1 appear3" type="rectangle" style="position: absolute;top: 280px; left: 300px; "  ></div>
+                            <div class="shape circle2 appear3" type="rectangle" style="position: absolute;top: 90px; left: 30px; "></div>
+                            <div class="shape square1 rotateShape1 appear3" type="rectangle" style="position: absolute;top: 230px; left: 150px; " ></div>
+                            <div class="shape traingleShape1 rotateShape2 appear3" type="traingle"style="position: absolute;top: 80px; left: 200px; ">&#9650;</div>
+                            <div class="shape traingleShape2 appear3" type="traingle"style="position: absolute;top: 400px; left: 100px; " >&#9650;</div>
+                            <div class="shape square2 rotateShape1 appear3" type="square" style="position: absolute;top: 90px; left: 350px; " ></div>
+                            <div class="shape square2 appear3 " type="square" style="position: absolute;top: 200px; left: 20px; " ></div>
+                        </div>
+                        <!-- hình screen4-->
+                        <div class="shape appear4">
+                            <div class="shape circle3 appear4" type="cỉcle" style="position: absolute;top: 300px; left: 30px; "  ></div>
+                            <div class="shape circle5 appear4" type="cỉcle" style="position: absolute;top: 20px; left: 300px; "  ></div>
+                            <div class="shape circle4 appear4" type="circle" style="position: absolute;top: 350px; left: 150px; "></div>
+                            <div class="shape square3 rotateShape4 appear4" type="rectangle" style="position: absolute;top: 10px; left: 150px; " ></div>
+                            <div class="shape traingleShape3 rotateShape3 appear4" type="traingle"style="position: absolute;top: 80px; left: 60px; ">&#9650;</div>
+                            <div class="shape traingleShape4 appear4" type="traingle"style="position: absolute;top: 250px; left: 300px; " >&#9650;</div>
+                            <div class="shape square4 rotateShape3 appear4" type="rectangle" style="position: absolute;top: 90px; left: 350px; " ></div>
+                            <div class="shape square4 appear4 " type="rectangle" style="position: absolute;top: 180px; left: 100px; " ></div>
+                            <div class="shape traingleShape4 appear4" type="traingle"style="position: absolute;top: 250px; left: 300px; " >&#9650;</div>
+                            <div class="shape square4 rotateShape1 appear4" type="rectangle" style="position: absolute;top: 90px; left: 350px; " ></div>
+                            <div class="shape square4 appear4 " type="rectangle" style="position: absolute;top: 180px; left: 100px; " ></div>
+                        </div>
                     </div>
                     <!-- Các xử lý liên quan đến painter-->
                     <div class="right-act"> 
+                        
                         <!-- Phần lời dẫn-->
                         <div class="title">
                             <div class="sound">
@@ -66,6 +90,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- Phần thao tác painter gồm 3 hiddenBox-->
                         <div class="tools-hidden">
                             <!-- Tools-hidden screen1-->
@@ -78,7 +103,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tròn</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: red;"></i>Hình tròn</div>
                             </div>
                             <div class="hidden-box appear1" color="blue" type="square" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -89,7 +114,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình vuông</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color:blue;"></i>Hình vuông</div>
                             </div>
                             <div class="hidden-box appear1"type="eraser" color="white" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -98,7 +123,7 @@
                                 </div>
                                 <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
                                 <div class="tool-blur" style="width: 240px"></div>
-                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-text-brush1">Xóa màu</div>
                                 <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
@@ -112,7 +137,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tam giác</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: yellow;"></i>Hình tam giác</div>
                             </div>
                             <div class="hidden-box appear2" color="brown" type="circle" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -123,7 +148,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tròn</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color:brown;"></i>Hình tròn</div>
                             </div>
                             <div class="hidden-box appear2" type="eraser" color="white" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -132,7 +157,7 @@
                                 </div>
                                 <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
                                 <div class="tool-blur" style="width: 240px"></div>
-                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-text-brush1">Xóa màu</div>
                                 <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
@@ -146,7 +171,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tam giác</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: orange;"></i>Hình tam giác</div>
                             </div>
                             <div class="hidden-box appear3" color="green" type="square" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -157,7 +182,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình vuông</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: green;"></i>Hình vuông</div>
                             </div>
                             <div class="hidden-box appear3" type="eraser" color="white" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -166,7 +191,7 @@
                                 </div>
                                 <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
                                 <div class="tool-blur" style="width: 240px"></div>
-                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-text-brush1">Xóa màu</div>
                                 <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
@@ -180,7 +205,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tròn</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: violet;"></i>Hình tròn</div>
                             </div>
                             <div class="hidden-box appear4" color="pink" type="traingle" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -191,7 +216,7 @@
                                 <div class="tool-brush">
                                     
                                 </div>
-                                <div class="tool-text-brush">Hình tam giác</div>
+                                <div class="tool-text-brush"><i class="fas fa-paint-roller" style="color: pink;"></i>Hình tam giác</div>
                             </div>
                             <div class="hidden-box appear4" type="eraser" color="white" style="opacity: 0.2;">
                                 <div class="tool-painter" style="display: block;"></div>
@@ -200,12 +225,13 @@
                                 </div>
                                 <div class="tool-select" style="background-color: rgb(143, 190,130); width: 0;"></div>
                                 <div class="tool-blur" style="width: 240px"></div>
-                                <div class="tool-text-brush">Xóa màu</div>
+                                <div class="tool-text-brush1">Xóa màu</div>
                                 <div class="tool-eraser" onclick="eraserColor()"></div>
                                 
                             </div>
 
                         </div>
+
                         <!-- Màn hình chúc mừng và chuyển màn-->
                         <div class="congratulation">
                             <div class="congrat-button">                             

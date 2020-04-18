@@ -12,9 +12,10 @@ var appear2 = document.getElementsByClassName('appear2');
 var appear3 = document.getElementsByClassName('appear3');
 var appear4 = document.getElementsByClassName('appear4');
 var appearX = 1;
-var circleColors=['red','brown','black','violet'];
-var squareColors=['blue','black','green','black'];
-var traingleColors=['black','yellow','orange','pink'];
+var circleColors=['red','brown','white','violet'];
+var squareColors=['blue','black','green','white'];
+var traingleColors=['white','yellow','orange','pink'];
+var numberShapePainterCorrect=[2,2,4,18]
 var startButton = document.getElementById('start-play');
 var scene = document.getElementsByClassName('scene');
 
@@ -53,6 +54,7 @@ function painterAppear(){
 
 console.log("start adding ...");
 
+//AddEventListener cho hiddenBox
 for(let i = 0; i < hiddenBox.length; i++){
     console.log("adding....");
     let hiddenbox = hiddenBox[i];
@@ -63,6 +65,7 @@ for(let i = 0; i < hiddenBox.length; i++){
     });
 }
 
+// AddEventListener cho shape
 for (let j = 0; j < shapes.length; j++) {
     let shape = shapes[j];
     var numberCorrect = 0;
@@ -83,10 +86,12 @@ for (let j = 0; j < shapes.length; j++) {
         }
         
         if(numberCorrect === 2){
-            let congrat = congratbuttons[0];
-            congrat.style.display = "block";
-            numberCorrect = -10000;
-            shape.style.color = "";
+            setTimeout(function(){
+                let congrat = congratbuttons[0];
+                congrat.style.display = "block";
+                numberCorrect = -10000;
+                shape.style.color = "";
+            },500);
         }
         console.log(numberCorrect);
     });  
@@ -95,19 +100,22 @@ for( let i = 0; i < shapes.length; i++){
     shapes[i].style.background = "";
 }
 
+//Xử lý màn hình chiến thắng Screen1
 congratulationButton[0].addEventListener('click',function(){
-    let congrat = congratbuttons[0];
-    congrat.style.display = "none";
-    startButton.style.display="block";
-    scene[0].style.filter= "blur(5px)";
-    for( let i = 0; i < appear1.length; i++){
-        appear1[i].style.display = "none";
-    }
-    for( let i = 0; i < appear2.length; i++){
-        appear2[i].style.display = "inline-block";
-        appearX = 2;
-    }
-    buttonDone[0].style.display = "inline-block";
+    setTimeout(function(){
+        let congrat = congratbuttons[0];
+        congrat.style.display = "none";
+        startButton.style.display="block";
+        scene[0].style.filter= "blur(5px)";
+        for( let i = 0; i < appear1.length; i++){
+            appear1[i].style.display = "none";
+        }
+        for( let i = 0; i < appear2.length; i++){
+            appear2[i].style.display = "inline-block";
+            appearX = 2;
+        }
+        buttonDone[0].style.display = "inline-block";
+    },1000);  
 });
 
 console.log('buttonDone');
@@ -116,6 +124,8 @@ var buttonwrong = document.getElementsByClassName('button-done_wrong');
 var buttonright = document.getElementsByClassName('button-done_right');
 var buttonPlaceholder = document.getElementsByClassName("button-done_placeholder");
 
+
+// Xử lý nút Done
 buttondone.addEventListener('click', function(){
     console.log(hiddenBox.length);
 
@@ -129,44 +139,83 @@ buttondone.addEventListener('click', function(){
     let numberCorrectShape = 0;
     for( let i = 0; i < shapes.length; i++){
         let shape = shapes[i];
-        if( (shape.getAttribute('type') === 'circle' && shape.style.background !== circleColor)
-        || (shape.getAttribute('type') === 'square' && shape.style.background !== squareColor )
-        || (shape.getAttribute('type') === 'traingle' && shape.style.color !== traingleColor )){
+        if( (shape.getAttribute('type') === 'circle' && shape.style.background === circleColor)
+        || (shape.getAttribute('type') === 'square' && shape.style.background === squareColor )
+        || (shape.getAttribute('type') === 'traingle' && shape.style.color === traingleColor )){
             numberCorrectShape++;
             buttonwrong[0].style.opacity = 1;
             buttonPlaceholder[0].style.visibility = "visible";
+            setTimeout(function(){
+                buttonwrong[0].style.opacity = 0;
+                buttonPlaceholder[0].style.visibility = "hidden";
+            },1000);
         }
         if (shape.getAttribute('type') === 'circle' && shape.style.background !== circleColor)
         {
             shape.style.border = "10px solid red";
-
+            setTimeout(function(){
+                shape.style.border = "4px solid black";
+            },1000);
         }
         if(shape.getAttribute('type') === 'square' && shape.style.background !== squareColor ){
             shape.style.border = "10px solid red";
+            setTimeout(function(){
+                shape.style.border = "4px solid black";
+            },1000);
         }
         if(shape.getAttribute('type') === 'traingle' && shape.style.color !== traingleColor ){
-            shape.style.stroke = "-webkit-text-stroke : 10px red";
-            let traingleWrong = document.getElementsByClassName('traingleShapeWrong');
-            shape.style.display="none";
-            traingleWrong[0].style.display="block";
+            shape.style["-webkit-text-stroke"]="10px red";
+            setTimeout(function(){
+                shape.style["-webkit-text-stroke"]="4px black";
+            },1000);
         }
-
+        // new String("white") == "white" => true, new String("white") === "white" => false
+        if(shape.getAttribute('type') === 'rectangle' && shape.style.background !== ''){
+            console.log(shape.style.color);
+            shape.style.border = "10px solid red";
+            setTimeout(function(){
+                shape.style.border = "4px solid black";
+            },1000);
+            console.log(shape.getAttribute('type'));
+        }
+        
     }
     console.log(numberCorrectShape);
-    if(numberCorrectShape === 3){
+    if(numberCorrectShape === numberShapePainterCorrect[appearX-1]){
         buttonright[0].style.opacity = 1;
         buttonPlaceholder[0].style.visibility = "visible";
-        let congrat = congratbuttons[0];
-        for( let i = 0; i < appear2.length; i++){
-            appear2[i].style.display = "none";
+        if(appearX ===2){
+            setTimeout(function(){
+                buttonright[0].style.opacity = 0;
+                buttonPlaceholder[0].style.visibility = "hidden";
+                let congrat = congratbuttons[0];
+                for( let i = 0; i < appear2.length; i++){
+                    appear2[i].style.display = "none";
+                }
+                for( let i = 0; i < appear3.length; i++){
+                    appear3[i].style.display = "inline-block";
+                }
+                appearX ++;
+                startButton.style.display="block";
+                scene[0].style.filter= "blur(5px)";   
+            },2000);
         }
-        for( let i = 0; i < appear3.length; i++){
-            appear3[i].style.display = "inline-block";
+        if(appearX === 3){
+            setTimeout(function(){
+                buttonright[0].style.opacity = 0;
+                buttonPlaceholder[0].style.visibility = "hidden";
+                let congrat = congratbuttons[0];
+                for( let i = 0; i < appear3.length; i++){
+                    appear3[i].style.display = "none";
+                }
+                for( let i = 0; i < appear4.length; i++){
+                    appear4[i].style.display = "inline-block";
+                }
+                appearX ++;
+                startButton.style.display="block";
+                scene[0].style.filter= "blur(5px)";   
+            },2000);
         }
-        appearX = 3;
-        startButton.style.display="block";
-        scene[0].style.filter= "blur(5px)";   
-         
     }
     
 });
