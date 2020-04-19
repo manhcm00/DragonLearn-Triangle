@@ -7,6 +7,7 @@ const screen1 = document.querySelector('#screen1');
 const screen2 = document.querySelector('#screen2');
 const screen3 = document.querySelector('#screen3');
 
+// close a screen and render another screen
 function endScreen() {
     if (targets[0].isSleeping && targets[1].isSleeping) {
         screen1.style.animation = `fadeScreen 3s ease-in`;
@@ -38,6 +39,7 @@ function endScreen() {
 
 var health = 3;
 
+// call eveytime when player do somthing wrong
 function loseHeath() {
     health -= 1;
     let healthLose = healthBar[2 - health];
@@ -49,6 +51,7 @@ function loseHeath() {
     }
 }
 
+// call everytime player finish a part of game
 function resetHeathBar() {
     health = 3;
     for (let healthIcon of healthBar) {
@@ -58,18 +61,21 @@ function resetHeathBar() {
 
 let draggedShape = null;
 
+// close the mouth of elephant at here, a target is a elephant
 function closeMouth(target) {
     let activeTarget = target.children[0];
     let mouth = activeTarget.children[1];
     mouth.style.display = 'none';
 }
 
+// open the elephant's mouth
 function openMouth(target) {
     let activeTarget = target.children[0];
     let mouth = activeTarget.children[1];
     mouth.style.display = 'block';
 }
 
+// react of elephant when player feed it wrong shape
 function badReact(target) {
     let activeTarget = target.children[0];
     let redTarget = target.children[1];
@@ -81,6 +87,7 @@ function badReact(target) {
     }, 1500)
 }
 
+// when the stomach of elephant is full
 function sleep(target) {
     let activeTarget = target.children[0];
     let sleepingTarget = target.children[2];
@@ -92,8 +99,8 @@ for (let i = 0; i < listShapes.length; i++) {
     const shape = listShapes[i];
     shape.isDisappear = false;
     
+    // add event when player start dragging a shape, the shape will disappear
     shape.addEventListener('dragstart', function () {
-        console.log('dragged');
         draggedShape = shape;
         setTimeout(function() {
             shape.style.display = 'none';
@@ -101,10 +108,9 @@ for (let i = 0; i < listShapes.length; i++) {
         
     });
 
+    // add event when player stop dragging
     shape.addEventListener('dragend', function () {
-        console.log('dragend');
         setTimeout(function() {
-            console.log(shape.getAttribute('disappear'));
             if (shape.isDisappear) {
                 draggedShape.style.display = 'none'; 
             }
@@ -120,23 +126,24 @@ for (let j = 0; j < targets.length; j ++) {
     target.blanksOfstomach = 4;
     target.isSleeping = false;
 
+    // add event when player drag shape over the elepant
     target.addEventListener('dragover', function(e) {
         e.preventDefault();
-        //this.style.backgroundColor = 'rgba(0, 0, 0, 0.2)'
         openMouth(target);
     });
 
+    // add event when player draggener shape 
     target.addEventListener('draggener', function(e) {
         e.preventDefault();
-        //this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         closeMouth(target);
     });
 
+    // add event when player drag the shape leave the elephant
     target.addEventListener('dragleave', function(e) {
-        //this.style.backgroundColor = 'rgba(0, 0, 0, 0)';
         closeMouth(target);
     })
 
+    // add event when player drop the shape
     target.addEventListener('drop', function (e) {
         e.preventDefault();
         e.stopPropagation();
@@ -156,7 +163,6 @@ for (let j = 0; j < targets.length; j ++) {
                 draggedShape.isDisappear = false;
             }
             closeMouth(target);
-            console.log(target.id);
         }
     });
 }
