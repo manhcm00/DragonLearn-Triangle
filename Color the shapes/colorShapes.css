@@ -460,7 +460,7 @@ body.card-content{
     margin-top: -70px;
     background: #6ec3e2;
     display: none;
-    /* display: inline-block*/
+    cursor: pointer;
 }
 
 .button-done_placeholder{
@@ -620,7 +620,6 @@ body.card-content{
 .rotateShape2{
   transform: rotate(-35deg);
 }
-
 
 .traingleShape3{
     margin-left: -45px;

@@ -15,7 +15,7 @@ var appearX = 1;
 var circleColors=['red','brown','white','violet'];
 var squareColors=['blue','black','green','white'];
 var traingleColors=['white','yellow','orange','pink'];
-var numberShapePainterCorrect=[2,2,4,18]
+var numberShapePainterCorrect=[2,2,4,5]
 var startButton = document.getElementById('start-play');
 var scene = document.getElementsByClassName('scene');
 
@@ -112,6 +112,7 @@ congratulationButton[0].addEventListener('click',function(){
         }
         for( let i = 0; i < appear2.length; i++){
             appear2[i].style.display = "inline-block";
+            appear2[i].style.animation = `appear 2s ease-in`;
             appearX = 2;
         }
         buttonDone[0].style.display = "inline-block";
@@ -194,6 +195,7 @@ buttondone.addEventListener('click', function(){
                 }
                 for( let i = 0; i < appear3.length; i++){
                     appear3[i].style.display = "inline-block";
+                    appear3[i].style.animation = `appear 2s ease-in`;
                 }
                 appearX ++;
                 startButton.style.display="block";
@@ -210,11 +212,15 @@ buttondone.addEventListener('click', function(){
                 }
                 for( let i = 0; i < appear4.length; i++){
                     appear4[i].style.display = "inline-block";
+                    appear4[i].style.animation = `appear 2s ease-in`;
                 }
                 appearX ++;
                 startButton.style.display="block";
                 scene[0].style.filter= "blur(5px)";   
             },2000);
+        }
+        if(appearX ===4){
+            window.location.href = "../win screen/winScreen.html";
         }
     }
     
