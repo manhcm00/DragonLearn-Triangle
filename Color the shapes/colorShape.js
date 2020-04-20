@@ -15,10 +15,13 @@ var appearX = 1;
 var circleColors=['red','brown','white','violet'];
 var squareColors=['blue','black','green','white'];
 var traingleColors=['white','yellow','orange','pink'];
-var numberShapePainterCorrect=[2,2,4,5]
+var numberShapePainterCorrect=[2,2,4,5];
+var numberShapeWrong = [2,2,4,8];
 var startButton = document.getElementById('start-play');
 var scene = document.getElementsByClassName('scene');
-
+var balls = document.getElementsByClassName('ball');
+var suggestMessages= document.getElementsByClassName('suggestMessage');
+let suggestMessage = suggestMessages[0];
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -102,6 +105,7 @@ for( let i = 0; i < shapes.length; i++){
 
 //Xử lý màn hình chiến thắng Screen1
 congratulationButton[0].addEventListener('click',function(){
+    balls[3].style.transform = "translate(360px)";
     setTimeout(function(){
         let congrat = congratbuttons[0];
         congrat.style.display = "none";
@@ -138,33 +142,30 @@ buttondone.addEventListener('click', function(){
     console.log(squareColor);
     console.log(traingleColor);
     let numberCorrectShape = 0;
+    let numberWrong = 0;
     for( let i = 0; i < shapes.length; i++){
         let shape = shapes[i];
+        if( (shape.getAttribute('type') === 'circle' && shape.style.background !== circleColor)
+        || (shape.getAttribute('type') === 'square' && shape.style.background !== squareColor )
+        || (shape.getAttribute('type') === 'traingle' && shape.style.color !== traingleColor )){
+            doneButtonWrong();
+        }
         if( (shape.getAttribute('type') === 'circle' && shape.style.background === circleColor)
         || (shape.getAttribute('type') === 'square' && shape.style.background === squareColor )
         || (shape.getAttribute('type') === 'traingle' && shape.style.color === traingleColor )){
             numberCorrectShape++;
-            buttonwrong[0].style.opacity = 1;
-            buttonPlaceholder[0].style.visibility = "visible";
-            setTimeout(function(){
-                buttonwrong[0].style.opacity = 0;
-                buttonPlaceholder[0].style.visibility = "hidden";
-            },1000);
         }
-        if (shape.getAttribute('type') === 'circle' && shape.style.background !== circleColor)
+        if (shape.getAttribute('type') === 'circle' && shape.style.background !== circleColor && shape.style.background !== "")
         {
-            shape.style.border = "10px solid red";
-            setTimeout(function(){
-                shape.style.border = "4px solid black";
-            },1000);
+            numberWrong++;
+            falseReport(shape);
         }
-        if(shape.getAttribute('type') === 'square' && shape.style.background !== squareColor ){
-            shape.style.border = "10px solid red";
-            setTimeout(function(){
-                shape.style.border = "4px solid black";
-            },1000);
+        if(shape.getAttribute('type') === 'square' && shape.style.background !== squareColor && shape.style.background !== ""){
+            numberWrong++;
+            falseReport(shape);
         }
-        if(shape.getAttribute('type') === 'traingle' && shape.style.color !== traingleColor ){
+        if(shape.getAttribute('type') === 'traingle' && shape.style.color !== traingleColor && shape.style.color !== ""){
+            numberWrong++;
             shape.style["-webkit-text-stroke"]="10px red";
             setTimeout(function(){
                 shape.style["-webkit-text-stroke"]="4px black";
@@ -172,62 +173,108 @@ buttondone.addEventListener('click', function(){
         }
         // new String("white") == "white" => true, new String("white") === "white" => false
         if(shape.getAttribute('type') === 'rectangle' && shape.style.background !== ''){
+            numberWrong++;
             console.log(shape.style.color);
-            shape.style.border = "10px solid red";
-            setTimeout(function(){
-                shape.style.border = "4px solid black";
-            },1000);
+            falseReport(shape);
+
             console.log(shape.getAttribute('type'));
         }
         
     }
-    console.log(numberCorrectShape);
-    if(numberCorrectShape === numberShapePainterCorrect[appearX-1]){
+    console.log("shapeNumber "+ shapes.length);
+    console.log("numberCorrectShape " + numberCorrectShape );
+    console.log("numberWrong " +numberWrong);
+
+    // Hiển thị nhắc tô thêm hình
+    if(numberCorrectShape < numberShapePainterCorrect[appearX - 1]  && numberWrong=== numberShapeWrong[appearX - 1]){
+        addSuggestMessage();
+    }
+
+    // Hoàn thành mỗi screen
+    if(numberCorrectShape === numberShapePainterCorrect[appearX - 1] && numberWrong=== numberShapeWrong[appearX - 1]){
         buttonright[0].style.opacity = 1;
         buttonPlaceholder[0].style.visibility = "visible";
         if(appearX ===2){
-            setTimeout(function(){
-                buttonright[0].style.opacity = 0;
-                buttonPlaceholder[0].style.visibility = "hidden";
-                let congrat = congratbuttons[0];
-                for( let i = 0; i < appear2.length; i++){
-                    appear2[i].style.display = "none";
-                }
-                for( let i = 0; i < appear3.length; i++){
-                    appear3[i].style.display = "inline-block";
-                    appear3[i].style.animation = `appear 2s ease-in`;
-                }
-                appearX ++;
-                startButton.style.display="block";
-                scene[0].style.filter= "blur(5px)";   
-            },2000);
+            screen2Appear();
         }
         if(appearX === 3){
-            setTimeout(function(){
-                buttonright[0].style.opacity = 0;
-                buttonPlaceholder[0].style.visibility = "hidden";
-                let congrat = congratbuttons[0];
-                for( let i = 0; i < appear3.length; i++){
-                    appear3[i].style.display = "none";
-                }
-                for( let i = 0; i < appear4.length; i++){
-                    appear4[i].style.display = "inline-block";
-                    appear4[i].style.animation = `appear 2s ease-in`;
-                }
-                appearX ++;
-                startButton.style.display="block";
-                scene[0].style.filter= "blur(5px)";   
-            },2000);
+            screen3Appear();
         }
         if(appearX ===4){
-            window.location.href = "../win screen/winScreen.html";
+            winScreen();
         }
     }
     
 });
 
 
+function doneButtonWrong(){
+    buttonwrong[0].style.opacity = 1;
+    buttonPlaceholder[0].style.visibility = "visible";
+    setTimeout(function(){
+        buttonwrong[0].style.opacity = 0;
+        buttonPlaceholder[0].style.visibility = "hidden";
+    },1000);
+};
 
+function falseReport(shape){
+    shape.style.border = "10px solid red";
+        setTimeout(function(){
+        shape.style.border = "4px solid black";
+    },1000);
+};
+
+function addSuggestMessage(){
+    suggestMessage.style.display="inline-block";
+        setTimeout(function(){
+        suggestMessage.style.display="none";
+    },2000);
+};
+
+function screen2Appear(){
+    balls[2].style.transform = "translate(360px)";
+    setTimeout(function(){
+        buttonright[0].style.opacity = 0;
+        buttonPlaceholder[0].style.visibility = "hidden";
+        let congrat = congratbuttons[0];
+        for( let i = 0; i < appear2.length; i++){
+            appear2[i].style.display = "none";
+        }
+        for( let i = 0; i < appear3.length; i++){
+            appear3[i].style.display = "inline-block";
+            appear3[i].style.animation = `appear 2s ease-in`;
+        }
+        appearX ++;
+        startButton.style.display="block";
+        scene[0].style.filter= "blur(5px)";   
+    },2000);
+};
+
+function screen3Appear(){
+    balls[1].style.transform = "translate(360px)";
+    setTimeout(function(){
+        buttonright[0].style.opacity = 0;
+        buttonPlaceholder[0].style.visibility = "hidden";
+        let congrat = congratbuttons[0];
+        for( let i = 0; i < appear3.length; i++){
+            appear3[i].style.display = "none";
+        }
+        for( let i = 0; i < appear4.length; i++){
+            appear4[i].style.display = "inline-block";
+            appear4[i].style.animation = `appear 2s ease-in`;
+        }
+        appearX ++;
+        startButton.style.display="block";
+        scene[0].style.filter= "blur(5px)";   
+    },2000);
+};
+
+function winScreen(){
+    balls[0].style.transform = "translate(360px)";
+    setTimeout(function(){
+        window.location.href = "../win screen/winScreen.html";
+    },1500);
+}
 
 
 

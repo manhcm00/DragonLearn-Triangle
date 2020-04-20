@@ -146,10 +146,6 @@ a {
     position: relative;
 }
 
-.inner-process i :hover{
-    transition: left 200ms linear;
-}
-
 .ball{
     display: block;
     width: 21px;
@@ -158,6 +154,7 @@ a {
     background-image: url(./image/az_ball.png);
     position: absolute;
     top: 3px;
+    transition: 1s linear;
 }
 
 body.card-content{
@@ -439,6 +436,19 @@ body.card-content{
     color: #fff;
 }
 
+.suggestMessage{
+    height: 50px;
+    width: 400px;
+    position: relative;
+    display: none;
+    background-color: burlywood;
+    border-radius: 5px;
+}
+
+.titleMessage{
+    font-size: 30px;
+    color: white;
+}
 .Done{
     width: 420px;
     height: 100px;
@@ -524,6 +534,10 @@ body.card-content{
 
 #start-play :hover{
     opacity: 0.8;
+}
+
+.shape{
+    transition: color 1s;
 }
 
 .circle{
