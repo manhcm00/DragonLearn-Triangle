@@ -12,6 +12,7 @@
     <div id = "divBackground" > </div>
     <div style="width: 0px; height: 0px; overflow: hidden;"> </div>
     <div class="game">
+
         <!-- Tạo thanh processBar và các phần liên quan-->
         <div class="head">
             <!-- Tạo nút Back-->
@@ -37,11 +38,14 @@
                 </div>
             </div>
         </div>
+
         <!-- Tạo màn hình chính-->
         <div class="card-content">
             <div id="board" class="player" >
+
                 <!-- Màn hình chơi -->
                 <div class="scene">
+
                     <!-- Phần hình học thao tác-->
                     <div class="figure">
                         <div class="shape circle appear1 " type="circle" ></div>
@@ -70,6 +74,7 @@
                             <div class="shape square4 appear4 " type="rectangle" style="position: absolute;top: 180px; left: 100px; " ></div>
                         </div>
                     </div>
+
                     <!-- Các xử lý liên quan đến painter-->
                     <div class="right-act"> 
 
@@ -246,6 +251,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <!-- Nút Done kiểm tra đáp án và chuyển màn chơi-->
                         <div class="suggestMessage">
                             <span class="speaker" message="Hãy tô tất cả hình cần tô"></span>
@@ -258,9 +264,22 @@
                                 <div class="button-done_right"></div>
                                 <div class="button-done_text">Xong!</div>
                             </div>
-                        </div>                    
+                        </div> 
+
+                        <!-- Lời gợi ý Screen1 - guidePlay -->
+                        <div class=" suggestScreen1">
+                            <span class="speaker" message="Hãy thử tô màu cho cả 2 hình"></span>
+                            <span class="titleMessagesuggestScreen1">Hãy thử tô màu cho cả 2 hình!</span>
+                        </div>                 
+                    </div>
+
+                    <!-- Hướng dẫn chơi cho học sinh-->
+                    <div class="guidePlay" style="display : none">
+                        <div class="arrow-elem"></div>
+                        <div class="arrow-wink" style="display: none;"></div>
                     </div>
                 </div>
+
                 <!-- Nút Start bắt đầu màn chơi -->
                 <div id="start-play" onclick="start()" >
                     <div class="traingle">
@@ -280,6 +299,8 @@
 
     
     <script type="text/javascript" src="./colorShape.js"></script>
+
+    <!-- Speaker audio-->
     <script>
         
         $(function() {

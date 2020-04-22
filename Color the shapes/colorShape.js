@@ -22,15 +22,16 @@ var scene = document.getElementsByClassName('scene');
 var balls = document.getElementsByClassName('ball');
 var suggestMessages= document.getElementsByClassName('suggestMessage');
 let suggestMessage = suggestMessages[0];
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-};
-  
+var arrowElems = document.getElementsByClassName('guidePlay');
+let arrowElem = arrowElems[0];
+var arrowWinks = document.getElementsByClassName('arrow-wink');
+let arrowWink = arrowWinks[0];
+var buttondone = buttonDone[0];
+var buttonwrong = document.getElementsByClassName('button-done_wrong');
+var buttonright = document.getElementsByClassName('button-done_right');
+var buttonPlaceholder = document.getElementsByClassName("button-done_placeholder");
+var suggestScreen1 = document.getElementsByClassName("suggestScreen1");
+
 function start(){
     var startButton = document.getElementById('start-play');
     var scene = document.getElementsByClassName('scene');
@@ -38,11 +39,7 @@ function start(){
     scene[0].style.filter="none";
 };
 
-
-function onmouseOver(){
-    this.opacity= 0.5;
-};
-
+// Khối tô màu hiển thị
 function painterAppear(){
     let n = hiddenBox.length;
     console.log(n);
@@ -52,7 +49,23 @@ function painterAppear(){
         console.log("painter ....");
         hiddenBox[i].style.opacity= 1;
     }
-    console.log("finish");
+    console.log("finish HiddenBox");
+
+    guidePlay(420, 135, "red");
+    console.log("finish guidePlay1");
+
+    setTimeout(function(){
+        guidePlay(420, 270, "");
+    },12000);
+
+    setTimeout(function(){
+        suggestScreen1[0].style.display = "inline-block";
+    },23000);
+    
+    setTimeout(function(){
+        suggestScreen1[0].style.display = "none";
+    },26000);
+    console.log("finish guidePlay2");
 };
 
 console.log("start adding ...");
@@ -124,11 +137,6 @@ congratulationButton[0].addEventListener('click',function(){
 });
 
 console.log('buttonDone');
-var buttondone = buttonDone[0];
-var buttonwrong = document.getElementsByClassName('button-done_wrong');
-var buttonright = document.getElementsByClassName('button-done_right');
-var buttonPlaceholder = document.getElementsByClassName("button-done_placeholder");
-
 
 // Xử lý nút Done
 buttondone.addEventListener('click', function(){
@@ -208,6 +216,43 @@ buttondone.addEventListener('click', function(){
 });
 
 
+function guidePlay(a,b, c){
+    setTimeout(function(){
+        arrowElem.style.display="block";
+    },1000);
+
+    setTimeout(function(){
+        arrowElem.style.transform="translate("+ a +"px,"+ b+  "px)";
+    },2000);
+    setTimeout(function(){
+        arrowWink.style.display="block";
+    }, 4500);
+    setTimeout(function(){
+        arrowWink.style.display="none";
+    },6000);
+
+    setTimeout(function(){
+        arrowElem.style.transform="translate(150px, 90px)";
+    },7000);
+
+    setTimeout(function(){
+        arrowWink.style.display="block";
+    }, 9500);
+
+    setTimeout(function(){
+        arrowWink.style.display="none";
+    },10000);
+    
+    setTimeout(function(){
+        shapes[0].style.background=c;
+    },10000);
+
+    setTimeout(function(){
+        arrowElem.style.display="none";
+    },11000);
+    
+}
+
 function doneButtonWrong(){
     buttonwrong[0].style.opacity = 1;
     buttonPlaceholder[0].style.visibility = "visible";
@@ -276,7 +321,18 @@ function winScreen(){
     },1500);
 }
 
-
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
+  
+function onmouseOver(){
+    this.opacity= 0.5;
+};
 
 
 

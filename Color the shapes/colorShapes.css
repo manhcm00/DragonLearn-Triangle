@@ -339,9 +339,15 @@ body.card-content{
     padding-top: 11px;
     cursor: default;
 }
+
+.fa-paint-roller{
+    transform: rotate(-90deg);
+}
+
 .fas {
     margin-right: 10px;
 }
+
 .tool-select{
     position: absolute;
     top: 9px;
@@ -415,7 +421,9 @@ body.card-content{
     border: 43px solid rgba(255,255,255,0.75);
     transition: linear 0.2s;
     cursor: pointer;
+    transition: border 1s ;
 }
+
 .traingle{
     position: absolute;
     top: 50%;
@@ -449,6 +457,22 @@ body.card-content{
     font-size: 30px;
     color: white;
 }
+
+.suggestScreen1{
+    
+    height: 50px;
+    width: 500px;
+    position: relative;
+    display: none;
+    background-color: #81ecec;
+    border-radius: 5px;
+}
+
+.titleMessagesuggestScreen1{
+    font-size: 30px;
+    color: #00b894;
+}
+
 .Done{
     width: 420px;
     height: 100px;
@@ -518,6 +542,7 @@ body.card-content{
     position: absolute;
     color: #fff;
 }
+
 .back-link:hover{
     opacity: 0.5;
 }
@@ -531,13 +556,37 @@ body.card-content{
     cursor: pointer;
 }
 
+.guidePlay{
+    position: absolute;
+    width: 80px;
+    height: 99px;
+    left: 150px; 
+    top: 30px;
+    transition: 2s linear;
+}
+
+.arrow-elem{
+    position: absolute;
+    background-image: url(./image/arrowMouse.png);
+    width: 60px;
+    height: 60px;
+    right: 0;
+    bottom: 0;
+}
+
+.arrow-wink{
+    position: absolute;
+    background-image: url(./image/loading.png);
+    width: 75px;
+    height: 75px;
+}
 
 #start-play :hover{
     opacity: 0.8;
 }
 
 .shape{
-    transition: color 1s;
+    transition: color 1s, background-color 1s;
 }
 
 .circle{
@@ -586,6 +635,7 @@ body.card-content{
     margin-top: -50px;
     cursor: default;
 }
+
 .square1{
     display: block;
     margin-top: 50px;
@@ -595,7 +645,6 @@ body.card-content{
     background-color: white;
     opacity: 1;
 }
-
 
 .square2{
     display: block;
@@ -652,6 +701,7 @@ body.card-content{
     margin-top: -50px;
     cursor: default;
 }
+
 .square3{
     display: block;
     margin-top: 50px;
@@ -661,7 +711,6 @@ body.card-content{
     background-color: white;
     opacity: 1;
 }
-
 
 .square4{
     display: block;
@@ -710,7 +759,6 @@ body.card-content{
 .rotateShape4{
   transform: rotate(-90deg);
 }
-
 
 .button-next :hover{
     opacity: 1;
