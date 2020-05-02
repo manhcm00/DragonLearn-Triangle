@@ -9,7 +9,7 @@ describe('Outline', function() {
 		cy.get('a').contains(' Trở lại').click();
 		cy.get('a').contains('Colour in the shapes').click();
 		cy.get('div.traingle').click();
-		cy.get('a').contains(' Back ').click();
+		cy.get('a').contains(' Trở lại').click();
 	});
 });
 
