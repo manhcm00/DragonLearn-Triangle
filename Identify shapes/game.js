@@ -172,12 +172,3 @@ function initTarget() {
 
 initShape();
 initTarget();
-
-/*module.exports = {
-	endScreen,
-	openMouth,
-	closeMouth,
-	loseHeath,
-	badReact,
-	resetHeathBar
-};*/
