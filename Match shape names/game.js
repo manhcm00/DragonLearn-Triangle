@@ -7,14 +7,8 @@ backgroundMusic.play();
 backgroundMusic.volume = 0.2;
 backgroundMusic.loop = "true";
 
-//Progress balls on the left and right, stand for the number of rounds left and have passed
-const progressBallsLeft = document.querySelectorAll(".progress-ball-left");
-const progressBallsRight = document.querySelectorAll(".progress-ball-right");
-
-//Hide all the balls on the right at the beginning
-for (let i = 0; i < progressBallsRight.length; i++) {
-    progressBallsRight[i].style.display = "none";
-}
+//Progress balls show the process of the player
+const progressBalls = document.querySelectorAll(".progress-ball");
 
 //Player can switch off the background music
 let backgroundSpeaker = document.querySelector("#bg-music-speaker");
@@ -29,6 +23,7 @@ backgroundSpeaker.addEventListener("click", function () {
     }
 });
 
+//The number of rounds left
 let roundNumbers = 6;
 
 hideScreens();
@@ -216,11 +211,9 @@ function animatingCard(cardNumber, cardName) {
 function moveBall() {
     console.log(roundNumbers);
     if (!isWrong) {
-        progressBallsLeft[roundNumbers].style.display = "none";
-        progressBallsRight[5 - roundNumbers].style.display = "block";
+        progressBalls[roundNumbers].style.transform = "translate(288px)";
     } else {
-        progressBallsLeft[roundNumbers].style.display = "block";
-        progressBallsRight[5 - roundNumbers].style.display = "none";
+        progressBalls[roundNumbers].style.transform = "translate(0px)"
     }
 }
 

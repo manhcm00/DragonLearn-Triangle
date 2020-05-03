@@ -229,10 +229,11 @@ button {
     font-size: 1.1rem;
 }
 
-.progress-ball-left, .progress-ball-right {
+.progress-ball {
     position: absolute;
     width: 28px;
     height: 28px;
+    transition: 0.9s linear;
 }
 
 #ball2 {
@@ -253,30 +254,6 @@ button {
 
 #ball6 {
     left: 139px;
-}
-
-#ball7 {
-    left: 95%;
-}
-
-#ball8 {
-    left: 89%;
-}
-
-#ball9 {
-    left: 83%;
-}
-
-#ball10 {
-    left: 77%;
-}
-
-#ball11 {
-    left: 71%;
-}
-
-#ball12 {
-    left: 65%;
 }
 
 @keyframes fadeScreen {
