@@ -333,7 +333,7 @@ body.card-content{
 
 .tool-text-brush1{
     margin-left: 60px;
-    margin-top: -65px;
+    margin-top: -50px;
     font-size: 26px;
     float: left;
     padding-top: 11px;
@@ -357,14 +357,13 @@ body.card-content{
 }
 
 .tool-eraser{
-    margin-top:-50px;
+    margin-top:-40px;
     height: 40px;
     width: 60px;
     background-image: url("./image/eraser.png");
 }
 
 .tool-blur{
-    background-image: url("./image/toolBrush.png");
     opacity: 1;
     top: 10px;
     height: 40px;

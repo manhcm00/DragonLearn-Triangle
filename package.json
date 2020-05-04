@@ -1,7 +1,6 @@
 {
   "name": "dragonlearn",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
@@ -23,5 +22,9 @@
     "mocha": "^7.1.2",
     "mocha-jsdom": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "directories": {
+    "test": "test"
+  },
+  "description": ""
 }

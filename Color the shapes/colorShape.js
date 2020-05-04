@@ -194,7 +194,7 @@ buttondone.addEventListener('click', function(){
     console.log("numberWrong " +numberWrong);
 
     // Hiển thị nhắc tô thêm hình
-    if(numberCorrectShape < numberShapePainterCorrect[appearX - 1]  && numberWrong=== numberShapeWrong[appearX - 1]){
+    if(numberCorrectShape < numberShapePainterCorrect[appearX - 1]  && numberWrong === numberShapeWrong[appearX - 1]){
         addSuggestMessage();
     }
 
