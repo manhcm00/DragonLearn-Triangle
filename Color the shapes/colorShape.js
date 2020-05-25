@@ -323,9 +323,7 @@ function getRandomColor() {
     return color;
 };
   
-function onmouseOver(){
-    this.opacity= 0.5;
-};
+
 
 
 
