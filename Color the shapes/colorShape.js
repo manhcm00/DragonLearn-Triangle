@@ -203,10 +203,10 @@ buttondone.addEventListener('click', function(){
         buttonright[0].style.opacity = 1;
         buttonPlaceholder[0].style.visibility = "visible";
         if(appearX ===2){
-            screenAppear(2);
+            screen2Appear();
         }
         if(appearX === 3){
-            screenAppear(3);
+            screen3Appear();
         }
         if(appearX ===4){
             winScreen();
@@ -305,6 +305,14 @@ function screenAppear(n){
         startButton.style.display="block";
         scene[0].style.filter= "blur(5px)"; 
     },2000);
+}
+
+function screen2Appear() {
+    screenAppear(2);
+}
+
+function screen3Appear() {
+    screenAppear(3)
 }
 
 function winScreen(){
