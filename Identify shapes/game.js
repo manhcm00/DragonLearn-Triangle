@@ -2,11 +2,11 @@ const listShapes = document.querySelectorAll('.shapes');
 const targets = document.querySelectorAll('.targets');
 const healthBar = document.querySelectorAll('.health');
 const progressBalls = document.querySelectorAll('.progress-ball');
-
 const screen1 = document.querySelector('#screen1');
 const screen2 = document.querySelector('#screen2');
 const screen3 = document.querySelector('#screen3');
-
+var health = 3;
+let draggedShape = null;
 // close a screen and render another screen
 function endScreen() {
 	if (targets[0].isSleeping && targets[1].isSleeping) {
@@ -37,7 +37,7 @@ function endScreen() {
 	}
 }
 
-var health = 3;
+
 
 // call when player do something wrong
 function loseHeath() {
@@ -59,7 +59,7 @@ function resetHeathBar() {
 	}
 }
 
-let draggedShape = null;
+
 
 // close the mouth of elephant at here, a target is a elephant
 function closeMouth(target) {
