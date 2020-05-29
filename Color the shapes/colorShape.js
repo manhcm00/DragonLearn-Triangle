@@ -203,10 +203,10 @@ buttondone.addEventListener('click', function(){
         buttonright[0].style.opacity = 1;
         buttonPlaceholder[0].style.visibility = "visible";
         if(appearX ===2){
-            screenAppear();
+            screen2Appear();
         }
         if(appearX === 3){
-            screenAppear();
+            screen3Appear();
         }
         if(appearX ===4){
             winScreen();
@@ -276,31 +276,18 @@ function addSuggestMessage(){
     },2000);
 };
 
-function screenAppear(){
-    var firtAppear;
-    var secondAppear;
-    var idAppear;
-    if(appearX === 2) {
-        idAppear = 2;
-        firtAppear = appear2;
-        secondAppear = appear3;
-    }
-    else {
-        idAppear = 1;
-        firtAppear = appear3;
-        secondAppear = appear4
-    }
-    balls[idAppear].style.transform = "translate(360px)";
+function screen2Appear(){
+    balls[2].style.transform = "translate(360px)";
     setTimeout(function(){
         buttonright[0].style.opacity = 0;
         buttonPlaceholder[0].style.visibility = "hidden";
         let congrat = congratbuttons[0];
-        for( let i = 0; i < firtAppear.length; i++){
-            firtAppear[i].style.display = "none";
+        for( let i = 0; i < appear2.length; i++){
+            appear2[i].style.display = "none";
         }
-        for( let i = 0; i < secondAppear.length; i++){
-            secondAppear[i].style.display = "inline-block";
-            secondAppear[i].style.animation = `appear 2s ease-in`;
+        for( let i = 0; i < appear3.length; i++){
+            appear3[i].style.display = "inline-block";
+            appear3[i].style.animation = `appear 2s ease-in`;
         }
         appearX ++;
         startButton.style.display="block";
@@ -308,6 +295,24 @@ function screenAppear(){
     },2000);
 };
 
+function screen3Appear(){
+    balls[1].style.transform = "translate(360px)";
+    setTimeout(function(){
+        buttonright[0].style.opacity = 0;
+        buttonPlaceholder[0].style.visibility = "hidden";
+        let congrat = congratbuttons[0];
+        for( let i = 0; i < appear3.length; i++){
+            appear3[i].style.display = "none";
+        }
+        for( let i = 0; i < appear4.length; i++){
+            appear4[i].style.display = "inline-block";
+            appear4[i].style.animation = `appear 2s ease-in`;
+        }
+        appearX ++;
+        startButton.style.display="block";
+        scene[0].style.filter= "blur(5px)";   
+    },2000);
+};
 
 function winScreen(){
     balls[0].style.transform = "translate(360px)";
