@@ -232,12 +232,11 @@ body.card-content{
     background-position: 0 0;
 }
 
-.button-next{
+#button-next{
     margin-top: 6px;
     height: 44px;
     position: relative;
     display: inline-block;
-    cursor: pointer;
 }
 
 .button-next-link{
@@ -291,6 +290,7 @@ body.card-content{
     left: -35px;
     width: 335px;
     height: 80px;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -759,7 +759,7 @@ body.card-content{
   transform: rotate(-90deg);
 }
 
-.button-next :hover{
+#button-next :hover{
     opacity: 1;
 }
 

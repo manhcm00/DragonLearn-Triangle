@@ -1,5 +1,4 @@
 var toolsHidden = document.getElementsByClassName('tools-hidden');
-var buttonNext = document.getElementsByClassName('button-next');
 var hiddenBox = document.getElementsByClassName('hidden-box');
 var shapes = document.getElementsByClassName('shape');
 var congratbuttons = document.getElementsByClassName("congratulation");
@@ -31,41 +30,50 @@ var buttonwrong = document.getElementsByClassName('button-done_wrong');
 var buttonright = document.getElementsByClassName('button-done_right');
 var buttonPlaceholder = document.getElementsByClassName("button-done_placeholder");
 var suggestScreen1 = document.getElementsByClassName("suggestScreen1");
+var buttonNext = document.getElementById('button-next');
+var canClick = 0;
+var guide = true;
 
 function start(){
     var startButton = document.getElementById('start-play');
     var scene = document.getElementsByClassName('scene');
     startButton.style.display="none";
     scene[0].style.filter="none";
+    buttonNext.style.cursor = 'pointer';
+    if (guide == true) canClick = 1;
+    else canClick = 2;
 };
 
 // Khối tô màu hiển thị
 function painterAppear(){
-    let n = hiddenBox.length;
-    console.log(n);
-    buttonNext[0].style.display='none';
-    toolsHidden[0].style.opacity=1;
-    for(let i= 0; i < n; i++){
-        console.log("painter ....");
-        hiddenBox[i].style.opacity= 1;
+    if (canClick == 1) {
+        let n = hiddenBox.length;
+        console.log(n);
+        buttonNext.style.display='none';
+        toolsHidden[0].style.opacity=1;
+        for(let i= 0; i < n; i++){
+            console.log("painter ....");
+            hiddenBox[i].style.opacity= 1;
+        }
+        console.log("finish HiddenBox");
+
+        guidePlay(420, 135, "red");
+        console.log("finish guidePlay1");
+
+        setTimeout(function(){
+            guidePlay(420, 270, "");
+        },12000);
+
+        setTimeout(function(){
+            suggestScreen1[0].style.display = "inline-block";
+        },23000);
+
+        setTimeout(function(){
+            suggestScreen1[0].style.display = "none";
+            canClick = 2;
+        },26000);
+        console.log("finish guidePlay2");
     }
-    console.log("finish HiddenBox");
-
-    guidePlay(420, 135, "red");
-    console.log("finish guidePlay1");
-
-    setTimeout(function(){
-        guidePlay(420, 270, "");
-    },12000);
-
-    setTimeout(function(){
-        suggestScreen1[0].style.display = "inline-block";
-    },23000);
-    
-    setTimeout(function(){
-        suggestScreen1[0].style.display = "none";
-    },26000);
-    console.log("finish guidePlay2");
 };
 
 console.log("start adding ...");
@@ -76,8 +84,10 @@ for(let i = 0; i < hiddenBox.length; i++){
     let hiddenbox = hiddenBox[i];
     console.log("add clickHandler");
     hiddenbox.addEventListener('click', function(){
-        color = hiddenbox.getAttribute("color");
-        console.log(hiddenbox.getAttribute("color"));
+        if (canClick == 2) {
+            color = hiddenbox.getAttribute("color");
+            console.log(hiddenbox.getAttribute("color"));
+        }
     });
 }
 
@@ -86,30 +96,33 @@ for (let j = 0; j < shapes.length; j++) {
     let shape = shapes[j];
     var numberCorrect = 0;
     shape.addEventListener('click', function() {
-        let buttondone = buttonDone[0];
+        if (canClick == 2) {
+            let buttondone = buttonDone[0];
 
-        if(shape.getAttribute("type") === "traingle" ){
-            shape.style.color = color;
-        }
-        else{
-            shape.style.background = color;
-        }
-        
-        if((shape.getAttribute("type") == "square" && color == "blue")|| (shape.getAttribute("type") =="circle" && color=="red"))
-        {
-            numberCorrect++;
+            if(shape.getAttribute("type") === "traingle" ){
+                shape.style.color = color;
+            }
+            else{
+                shape.style.background = color;
+            }
+            
+            if((shape.getAttribute("type") == "square" && color == "blue")|| (shape.getAttribute("type") =="circle" && color=="red"))
+            {
+                numberCorrect++;
+                console.log(numberCorrect);
+            }
+            
+            if(numberCorrect === 2){
+                setTimeout(function(){
+                    let congrat = congratbuttons[0];
+                    congrat.style.display = "block";
+                    numberCorrect = -10000;
+                    shape.style.color = "";
+                },500);
+                guide = false;
+            }
             console.log(numberCorrect);
         }
-        
-        if(numberCorrect === 2){
-            setTimeout(function(){
-                let congrat = congratbuttons[0];
-                congrat.style.display = "block";
-                numberCorrect = -10000;
-                shape.style.color = "";
-            },500);
-        }
-        console.log(numberCorrect);
     });  
 }
 for( let i = 0; i < shapes.length; i++){
@@ -364,7 +377,6 @@ var circle = document.querySelector('.circle');
 circle.addEventListener('click', function (){
     circle.style.display = 'none' ; 
 });
-
 var square = document.querySelector('.square');
 */
 /*
@@ -376,12 +388,10 @@ function drawCircle(){
     ctx.stroke();
     ctx.closePath();
 }
-
 function drawTraingle(){
     var width = 125;  // Triangle Width
     var height = 105; // Triangle Height
     var padding = 20;
-
     // Draw a path
     context.beginPath();
     context.moveTo(padding + width/2, padding);        // Top Corner
@@ -389,12 +399,10 @@ function drawTraingle(){
     context.lineTo(padding, height + padding);         // Bottom Left
     context.closePath();
     context.stroke();
-
     // Fill the path
   //  context.fillStyle = "#ffc821";
   //  context.fill();
 }
-
 function drawRectangle(){
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
@@ -403,6 +411,4 @@ function drawRectangle(){
     ctx.stroke();
     ctx.closePath();
 }
-
-
 */
